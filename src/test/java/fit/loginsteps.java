@@ -8,58 +8,82 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class loginsteps {
-	public MyAppT obj;
-	
-	public loginsteps(MyAppT iobj) {
-		super();
-		this.obj = iobj;
-	}
-	
-	@Given("I am not in system")
-	public void iAmNotInSystem() {
-	   
-	   assertTrue(obj.isLogedin==false);	
-	}
-	@When("set username {string} and pass {string}")
-	public void setUsernameAndPass(String user_name, String pass) {
-	    // Write code here that turns the phrase above into concrete actions
-	   // throw new io.cucumber.java.PendingException();
-		boolean f=false;
-		for (User u: obj.up) {
-			
-			if (user_name.equals(u.getUser_name()) && u.getPass().equals(pass)) {
-				f=true;
-			}
-		}
-		
-		assertTrue(f);
-	}
-	@Then("login succeed")
-	public void loginSucceed() {
-	    // Write code here that turns the phrase above into concrete actions
-	   // throw new io.cucumber.java.PendingException();
-	}
-	
-	@Then("login failed")
-	public void loginFailed() {
-	    // Write code here that turns the phrase above into concrete actions
-	   // throw new io.cucumber.java.PendingException();
-		
-		
-	}
-	
-	@When("set invalid username {string} and pass {string}")
-	public void setInvalidUsernameAndPass(String user_name, String pass) {
-	    // Write code here that turns the phrase above into concrete actions
-		boolean f=false;
-		for (User u: obj.up) {
-			
-			if (user_name==u.getUser_name() && u.getPass()==pass) {
-				f=true;
-			}
-		}
-		
-		assertFalse(f);
-	}
+    public MyAppT obj;
 
+    public loginsteps(MyAppT oobj) {
+        super();
+        this.obj = oobj;
+    }
+
+    @Given("I am not in system")
+    public void iAmNotInSystem() {
+        // Ensure the user is not logged in
+        assertTrue(obj.isLogedin == false);
+    }
+
+    @When("set username {string} and pass {string}")
+    public void setUsernameAndPass(String user_name, String pass) {
+        // Check if fields are not empty
+        if (user_name.isEmpty() || pass.isEmpty()) {
+            throw new IllegalArgumentException("Fields cannot be empty");
+        }
+
+        // Check if the username and password are valid
+        boolean isValid = false;
+        for (User u : obj.up) {
+            if (user_name.equals(u.getUser_name()) && u.getPass().equals(pass)) {
+                isValid = true;
+                break;
+            }
+        }
+
+        // Validate the credentials
+        assertTrue("Login failed: Invalid credentials", isValid);
+        obj.isLogedin = true; // Update login status on success
+    }
+
+    @Then("login succeed")
+    public void loginSucceed() {
+        // Confirm login success
+        assertTrue("Login should be successful", obj.isLogedin);
+    }
+
+    @Then("login failed")
+    public void loginFailed() {
+        // Confirm login failure
+        assertFalse("Login should fail", obj.isLogedin);
+    }
+
+    @When("set invalid username {string} and pass {string}")
+    public void setInvalidUsernameAndPass(String user_name, String pass) {
+        // Check if fields are not empty
+        if (user_name.isEmpty() || pass.isEmpty()) {
+            throw new IllegalArgumentException("Fields cannot be empty");
+        }
+
+        // Check if the username and password are invalid
+        boolean isValid = false;
+        for (User u : obj.up) {
+            if (user_name.equals(u.getUser_name()) && u.getPass().equals(pass)) {
+                isValid = true;
+                break;
+            }
+        }
+
+        // Validate the credentials
+        assertFalse("Login succeeded unexpectedly", isValid);
+        obj.isLogedin = false; // Update login status on failure
+    }
+
+    @When("set missing username or password")
+    public void setMissingUsernameOrPassword() {
+        // Simulate missing details
+        throw new IllegalArgumentException("Fields cannot be empty");
+    }
+
+    @Then("show error message {string}")
+    public void showErrorMessage(String errorMessage) {
+        // Display error message
+        System.out.println("Error: " + errorMessage);
+    }
 }

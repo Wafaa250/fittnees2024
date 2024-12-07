@@ -1,18 +1,20 @@
-Feature: login 
+Feature: User Login
+
+  Scenario: Successful login with valid details
+    Given the user is on the login page
+    When the user enters valid username and password "wafa"+"0123"
+    And the user clicks the login button
+    Then the user should be redirected to the dashboard
 
 
-Scenario: valid loginn
-Given I am not in system
-When set username "haya" and pass "123"
-Then login succeed
+  Scenario: Unsuccessful login with invalid details
+    Given the user is on the login page
+    When the user enters an invalid username or password "rasmiya"+"0000"
+    And the user clicks the login button
+    Then the user should see an error message indicating incorrect credentials
 
-
-
-
-Scenario: invalid user name
-Given I am not in system
-When set invalid username "hayaw" and pass "123"
-Then login failed
-
-
-
+  Scenario: Unsuccessful login with missing details
+    Given the user is on the login page
+    When the user leaves the username or password field empty
+    And the user clicks the login button
+    Then the user should see an error message indicating that all fields are required
