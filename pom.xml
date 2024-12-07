@@ -36,5 +36,13 @@
             <artifactId>cucumber-picocontainer</artifactId>
             <version>7.20.1</version>
         </dependency>
+        
+        <dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.9.2</version> <!-- يمكنك استخدام أحدث إصدار -->
+    <scope>test</scope>
+</dependency>
+
     </dependencies>
 </project>
