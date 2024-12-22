@@ -1,108 +1,88 @@
 package fit;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
+import static org.junit.Assert.*;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.List;
 
 public class ClientInteractionSteps {
 
-    private boolean instructorLoggedIn = false;
-    private boolean messageSent = false;
-    private boolean feedbackProvided = false;
-    private boolean progressViewed = false;
-    private boolean discussionResponded = false;
+    private String result;
+    private List<String> messages;
+    private String feedback;
+    private String progress;
 
-    @Given("I am logged in as an instructor")
-    public void instructorLoggedIn() {
-        instructorLoggedIn = true;
-        System.out.println("Instructor logged into the system.");
+    @Given("I select the client {string}")
+    public void iSelectTheClient(String clientName) {
+        // Simulate selecting a client (validation is optional here)
+        System.out.println("Selected client: " + clientName);
     }
 
-    @And("I have an enrolled client named {string}")
-    public void enrolledClient(String clientName) {
-        System.out.println("Client found: " + clientName);
+    @When("I send a message {string}")
+    public void iSendAMessage(String message) {
+        result = ClientInteraction.sendMessage("Rasmiya", "Hiba", message);
     }
 
-    @When("I type the command {string}")
-    public void typeCommand(String command) {
-        System.out.println("Command executed: " + command);
+    @Then("the client {string} should receive the message {string}")
+    public void theClientShouldReceiveTheMessage(String clientName, String expectedMessage) {
+        messages = ClientInteraction.viewMessages(clientName);
+        assertTrue("Message received by client", messages.contains("From Rasmiya: " + expectedMessage));
     }
 
-    @And("I provide the message {string}")
-    public void provideMessage(String message) {
-        if (instructorLoggedIn) {
-            messageSent = true;
-            System.out.println("Message sent: " + message);
+    @When("I view the messages from the client")
+    public void iViewTheMessagesFromTheClient() {
+        messages = ClientInteraction.viewMessages("Hiba");
+    }
+
+    @Then("I should see the client messages")
+    public void iShouldSeeTheClientMessages() {
+        assertNotNull("Client messages should not be null", messages);
+        System.out.println("Messages: " + messages);
+    }
+
+    @When("I provide feedback {string}")
+    public void iProvideFeedback(String feedbackMessage) {
+        result = ClientInteraction.provideFeedback("Hiba", feedbackMessage);
+    }
+
+    @Then("the client {string} should receive the feedback {string}")
+    public void theClientShouldReceiveTheFeedback(String clientName, String expectedFeedback) {
+        feedback = ClientInteraction.viewFeedback(clientName);
+        assertEquals("Feedback received by client", expectedFeedback, feedback);
+    }
+
+    @When("I view the client progress")
+    public void iViewTheClientProgress() {
+        progress = ClientInteraction.viewProgress("Hiba");
+    }
+
+    @Then("I should see the progress details for {string}")
+    public void iShouldSeeTheProgressDetailsFor(String clientName) {
+        assertNotNull("Progress details should not be null", progress);
+        System.out.println("Progress for " + clientName + ": " + progress);
+    }
+
+    @When("I respond to the discussion with {string}")
+    public void iRespondToTheDiscussionWith(String response) {
+        result = ClientInteraction.sendMessage("Rasmiya", "Hiba", response);
+    }
+
+    @Then("the client {string} should see the response {string}")
+    public void theClientShouldSeeTheResponse(String clientName, String expectedResponse) {
+        messages = ClientInteraction.viewMessages(clientName);
+        assertTrue("Response received by client", messages.contains("From Rasmiya: " + expectedResponse));
+    }
+    
+    @Given("I select the discussion with the client {string}")
+    public void iSelectTheDiscussionWithTheClient(String clientName) {
+        // Simulate selecting a discussion with the client
+        List<String> messages = ClientInteraction.viewMessages(clientName);
+        if (messages.isEmpty()) {
+            throw new IllegalArgumentException("No discussion found with the client: " + clientName);
+        } else {
+            System.out.println("Selected discussion with client: " + clientName);
+            System.out.println("Messages: " + messages);
         }
     }
 
-    @Then("the system should display {string}")
-    public void confirmMessageSent(String confirmation) {
-        assertTrue(messageSent, "Message must be sent successfully.");
-        System.out.println("System confirmation: " + confirmation);
-    }
-
-    @When("I type the command {string} to view messages from {string}")
-    public void viewMessages(String command, String clientName) {
-        if (instructorLoggedIn) {
-            System.out.println("Viewing messages from: " + clientName);
-        }
-    }
-
-    @Then("I should see all messages from {string} displayed in the terminal")
-    public void confirmMessagesDisplayed(String clientName) {
-        System.out.println("Messages from " + clientName + " displayed.");
-    }
-
-    @And("I enter the feedback {string}")
-    public void provideFeedback(String feedback) {
-        if (instructorLoggedIn) {
-            feedbackProvided = true;
-            System.out.println("Feedback provided: " + feedback);
-        }
-    }
-
-    @Then("the system should display {string} for feedback")
-    public void confirmFeedbackProvided(String confirmation) {
-        assertTrue(feedbackProvided, "Feedback must be saved successfully.");
-        System.out.println("System confirmation: " + confirmation);
-    }
-
-    @When("I type the command {string} to view progress report for {string}")
-    public void viewProgressReport(String command, String clientName) {
-        if (instructorLoggedIn) {
-            progressViewed = true;
-            System.out.println("Viewing progress report for: " + clientName);
-        }
-    }
-
-    @Then("the progress report for {string} should be displayed in the terminal")
-    public void confirmProgressReportDisplayed(String clientName) {
-        assertTrue(progressViewed, "Progress report must be viewed successfully.");
-        System.out.println("Progress report for " + clientName + " displayed.");
-    }
-
-    @When("I type the command {string} to respond to discussion {string}")
-    public void respondToDiscussion(String command, String discussionTitle) {
-        if (instructorLoggedIn) {
-            discussionResponded = true;
-            System.out.println("Responding to discussion: " + discussionTitle);
-        }
-    }
-
-    @And("I provide the response {string}")
-    public void provideDiscussionResponse(String response) {
-        if (discussionResponded) {
-            System.out.println("Response added: " + response);
-        }
-    }
-
-    @Then("the system should display {string} for discussion response")
-    public void confirmDiscussionResponse(String confirmation) {
-        assertTrue(discussionResponded, "Response must be added successfully.");
-        System.out.println("System confirmation: " + confirmation);
-    }
 }

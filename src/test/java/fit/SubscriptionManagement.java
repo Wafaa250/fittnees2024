@@ -1,88 +1,66 @@
 package fit;
 
-import java.util.ArrayList;
-import java.util.List;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SubscriptionManagement {
 
-    // قائمة بخطط الاشتراك
-    private List<SubscriptionPlan> subscriptionPlans = new ArrayList<>();
+    SubscriptionManagementSource subscription = new SubscriptionManagementSource();
+    private boolean addResult;
+    private boolean deleteResult;
+    private boolean modifyResult;
+    private boolean cancelResult;
 
-    // طلبات ترقية الاشتراك
-    private List<UpgradeRequest> upgradeRequests = new ArrayList<>();
-
-    // إضافة خطة اشتراك جديدة
-    public boolean addPlan(String name, double price) {
-        for (SubscriptionPlan plan : subscriptionPlans) {
-            if (plan.getName().equalsIgnoreCase(name)) {
-                System.out.println("Error: Plan already exists.");
-                return false; // الخطة موجودة بالفعل
-            }
-        }
-        subscriptionPlans.add(new SubscriptionPlan(name, price));
-        System.out.println("Plan added successfully: " + name);
-        return true;
+    // الخطوة "the plan {string} exists"
+    @Given("the plan {string} exists")
+    public void thePlanExists(String planName) {
+        addResult = subscription.addSubscriptionPlan(planName, 100); // 100 هو السعر الافتراضي
+        assertTrue(addResult, "The plan was not added successfully.");
     }
 
-    // تحديث سعر خطة الاشتراك
-    public boolean updatePlanPrice(String name, double newPrice) {
-        for (SubscriptionPlan plan : subscriptionPlans) {
-            if (plan.getName().equalsIgnoreCase(name)) {
-                plan.setPrice(newPrice);
-                System.out.println("Price updated successfully for plan: " + name);
-                return true;
-            }
-        }
-        System.out.println("Error: Plan not found.");
-        return false;
+    // الخطوة "I add a new plan {string} with price {int}"
+    @When("I add a new plan {string} with price {int}")
+    public void iAddANewPlanWithPrice(String planName, int price) {
+        addResult = subscription.addSubscriptionPlan(planName, price);
     }
 
-    // حذف خطة اشتراك
-    public boolean deletePlan(String name) {
-        boolean removed = subscriptionPlans.removeIf(plan -> plan.getName().equalsIgnoreCase(name));
-        if (removed) {
-            System.out.println("Plan removed successfully: " + name);
-        } else {
-            System.out.println("Error: Plan not found.");
-        }
-        return removed;
+    @Then("the plan should be added")
+    public void the_plan_should_be_added() {
+        assertTrue(addResult, "The plan was not added successfully.");
     }
 
-    // عرض جميع خطط الاشتراك
-    public List<SubscriptionPlan> viewPlans() {
-        return subscriptionPlans;
+    // الخطوة "I delete the plan {string}"
+    @When("I delete the plan {string}")
+    public void iDeleteThePlan(String planName) {
+        deleteResult = subscription.deleteSubscriptionPlan(planName);
     }
 
-    // الموافقة على طلب ترقية
-    public boolean approveUpgrade(String clientName) {
-        for (UpgradeRequest request : upgradeRequests) {
-            if (request.getClientName().equalsIgnoreCase(clientName)) {
-                request.getClient().setSubscription(request.getNewPlan());
-                upgradeRequests.remove(request);
-                System.out.println("Upgrade approved for client: " + clientName);
-                return true;
-            }
-        }
-        System.out.println("Error: Upgrade request not found.");
-        return false;
+    @Then("it should be removed")
+    public void itShouldBeRemoved() {
+        assertTrue(deleteResult, "The plan was not removed successfully.");
     }
 
-    // رفض طلب ترقية
-    public boolean rejectUpgrade(String clientName) {
-        for (UpgradeRequest request : upgradeRequests) {
-            if (request.getClientName().equalsIgnoreCase(clientName)) {
-                upgradeRequests.remove(request);
-                System.out.println("Upgrade rejected for client: " + clientName);
-                return true;
-            }
-        }
-        System.out.println("Error: Upgrade request not found.");
-        return false;
+    // الخطوة "a client has requested an upgrade"
+    @Given("a client has requested an upgrade with email {string}")
+    public void aClientHasRequestedAnUpgrade(String email) {
+        subscription.requestUpgrade(email);
     }
 
-    // إضافة طلب ترقية
-    public void addUpgradeRequest(Client client, SubscriptionPlan newPlan) {
-        upgradeRequests.add(new UpgradeRequest(client, newPlan));
-        System.out.println("Upgrade request added for client: " + client.getName());
+    // الخطوة "I reject the upgrade"
+    @When("I reject the upgrade for client with email {string}")
+    public void iRejectTheUpgrade(String email) {
+        cancelResult = subscription.rejectSubscriptionUpgrade(email);
+    }
+
+    @Then("the client's subscription should stay the same")
+    public void theClientSSubscriptionShouldStayTheSame() {
+        assertTrue(cancelResult, "The subscription was incorrectly rejected.");
+    }
+
+    @Then("the client should be notified")
+    public void theClientShouldBeNotified() {
+        System.out.println("Client has been notified about the rejection.");
     }
 }

@@ -1,86 +1,78 @@
 package fit;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Signupsteps {
 
-public class signupsteps {
-    public MyAppT obj;
+    SignupSource signupSource = new SignupSource();
 
-    public signupsteps(MyAppT iobj) {
-        super();
-        this.obj = iobj;
-    }
+    private String username;
+    private String email;
+    private String role;
+    private String password;
+    private String confirmPassword;
+    private String actualMessage;
 
     @Given("I am on the sign-up page")
     public void iAmOnTheSignUpPage() {
-        // Ensure the user is not logged in and is on the signup page
-        assertFalse("User should not be logged in initially", obj.isLogedin);
-        System.out.println("User is on the sign-up page.");
+        System.out.println("Navigating to the sign-up page.");
     }
 
     @When("I enter a valid username {string}")
-    public void iEnterAValidUsername(String username) {
-        obj.Username = username;
-        System.out.println("Entered username: " + username);
+    public void iEnterAValidUsername(String usernameInput) {
+        username = usernameInput;
+    }
+
+    @When("I enter an invalid username {string}")
+    public void iEnterAnInvalidUsername(String usernameInput) {
+        username = usernameInput;
     }
 
     @When("I enter a valid email {string}")
-    public void iEnterAValidEmail(String email) {
-        obj.Email = email;
-        System.out.println("Entered email: " + email);
+    public void iEnterAValidEmail(String emailInput) {
+        email = emailInput;
+    }
+
+    @When("I enter an invalid email {string}")
+    public void iEnterAnInvalidEmail(String emailInput) {
+        email = emailInput;
     }
 
     @When("I enter a valid role {string}")
-    public void iEnterAValidRole(String role) {
-        obj.Role = role;
-        System.out.println("Entered role: " + role);
+    public void iEnterAValidRole(String roleInput) {
+        role = roleInput;
+    }
+
+    @When("I enter an invalid role {string}")
+    public void iEnterAnInvalidRole(String roleInput) {
+        role = roleInput;
     }
 
     @When("I enter a valid password {string}")
-    public void iEnterAValidPassword(String password) {
-        obj.Password = password;
-        System.out.println("Entered password: " + password);
+    public void iEnterAValidPassword(String passwordInput) {
+        password = passwordInput;
+    }
+
+    @When("I enter an invalid password {string}")
+    public void iEnterAnInvalidPassword(String passwordInput) {
+        password = passwordInput;
     }
 
     @When("I confirm the password {string}")
-    public void iConfirmThePassword(String confirmPassword) {
-        obj.ConfirmPassword = confirmPassword;
-        System.out.println("Confirmed password: " + confirmPassword);
+    public void iConfirmThePassword(String confirmPasswordInput) {
+        confirmPassword = confirmPasswordInput;
     }
 
     @When("I click the sign-up button")
     public void iClickTheSignUpButton() {
-        // Validation logic for signup
-        if (obj.Username == null || obj.Username.isEmpty()) {
-            obj.signupMessage = "Invalid username. It must be alphanumeric and not exceed 15 characters";
-        } else if (!obj.Email.contains("@") || !obj.Email.contains(".")) {
-            obj.signupMessage = "Invalid email address";
-        } else if (!obj.Role.equalsIgnoreCase("Admin") &&
-                   !obj.Role.equalsIgnoreCase("Instructor") &&
-                   !obj.Role.equalsIgnoreCase("Client")) {
-            obj.signupMessage = "Invalid role. Available roles: Admin, Instructor, Client";
-        } else if (!obj.Password.equals(obj.ConfirmPassword)) {
-            obj.signupMessage = "Passwords do not match";
-        } else if (obj.usedEmails.contains(obj.Email)) {
-            obj.signupMessage = "Email address is already in use";
-        } else {
-            obj.usedEmails.add(obj.Email);
-            obj.signupMessage = "Account created successfully for " + obj.Role;
-            obj.isLogedin = true;
-        }
+        actualMessage = signupSource.validateSignUp(username, email, role, password, confirmPassword);
     }
 
     @Then("I should see {string}")
     public void iShouldSee(String expectedMessage) {
-        assertEquals("Signup message does not match", expectedMessage, obj.signupMessage);
-        System.out.println("Displayed message: " + obj.signupMessage);
+        assertEquals(expectedMessage, actualMessage);
     }
 }
