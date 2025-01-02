@@ -83,14 +83,4 @@ public class ClientInteraction {
         }
         return "No progress details available";
     }
-
-  /*  public static void main(String[] args) {
-        // Example usage
-        System.out.println(sendMessage("Rasmiya", "Hiba", "Great progress this week! Keep it up!"));
-        System.out.println(viewMessages("Hiba"));
-        System.out.println(provideFeedback("Hiba", "Focus more on consistency."));
-        System.out.println(viewFeedback("Hiba"));
-        System.out.println(updateProgress("Hiba", "Completed 3 out of 4 sessions this week."));
-        System.out.println(viewProgress("Hiba"));
-    }*/
 }
