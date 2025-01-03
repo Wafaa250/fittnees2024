@@ -61,17 +61,16 @@
     </dependencies>
 
     <build>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.10.1</version>
-            <configuration>
-                <source>1.8</source>  <!-- تحديد الإصدار الذي تستخدمه -->
-                <target>1.8</target>  <!-- تحديد الإصدار الذي تستخدمه -->
-            </configuration>
-        </plugin>
-    </plugins>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>1.8</source>  <!-- تعديل إلى 1.8 أو أعلى حسب الحاجة -->
+                    <target>1.8</target>  <!-- تعديل إلى 1.8 أو أعلى حسب الحاجة -->
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -88,5 +87,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
