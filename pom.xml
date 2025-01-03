@@ -2,17 +2,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    
     <groupId>healthy.sys</groupId>
     <artifactId>fit</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
-    <!-- الخصائص الخاصة بـ SonarQube -->
     <properties>
-        <sonar.organization>wafaafitt</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    </properties>
-
+  <sonar.organization>wafaafitt</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
     <dependencies>
         <!-- Cucumber Java dependency -->
         <dependency>
@@ -75,29 +72,21 @@
                     <forkCount>2</forkCount>  <!-- إضافة لتشغيل الاختبارات في عمليات منفصلة -->
                 </configuration>
             </plugin>
-
-            <!-- Plugin لتحليل الجودة باستخدام SonarQube -->
-           <plugin>
-            <groupId>org.sonarsource.scanner.maven</groupId>
-            <artifactId>sonar-maven-plugin</artifactId>
-            <version>3.8.0.2131</version> <!-- حاول مع هذا الإصدار بدلاً من الإصدار الذي يسبب المشكلة -->
+     
+        <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.7</version> <!-- تأكد من استخدام أحدث نسخة -->
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
         </plugin>
-
-            <!-- Plugin لإنتاج تقارير تغطية الكود بواسطة JaCoCo -->
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.7</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+    </plugins>
+</build>
 
 </project>
