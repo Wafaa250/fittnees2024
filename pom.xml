@@ -14,8 +14,8 @@
         
         <!-- SonarQube configuration -->
         <sonar.organization>wafaafitt</sonar.organization>
-  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-</properties>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    </properties>
 
     <dependencies>
         <!-- Cucumber Java dependency -->
