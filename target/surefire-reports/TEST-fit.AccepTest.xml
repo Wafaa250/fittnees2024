@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="fit.AccepTest" time="1.127" tests="41" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\Msys\eclipse-workspace\fit\target\test-classes;C:\Users\Msys\eclipse-workspace\fit\target\classes;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-java\7.20.1\cucumber-java-7.20.1.jar;C:\Users\Msys\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-junit\7.20.1\cucumber-junit-7.20.1.jar;C:\Users\Msys\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Msys\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-core\7.20.1\cucumber-core-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-gherkin\7.20.1\cucumber-gherkin-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-gherkin-messages\7.20.1\cucumber-gherkin-messages-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\gherkin\28.0.0\gherkin-28.0.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\messages\24.1.0\messages-24.1.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\testng-xml-formatter\0.2.0\testng-xml-formatter-0.2.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\query\12.2.0\query-12.2.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\tag-expressions\6.1.0\tag-expressions-6.1.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-expressions\17.1.0\cucumber-expressions-17.1.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\datatable\7.20.1\datatable-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-plugin\7.20.1\cucumber-plugin-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\docstring\7.20.1\docstring-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\html-formatter\21.7.0\html-formatter-21.7.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\junit-xml-formatter\0.5.0\junit-xml-formatter-0.5.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\ci-environment\10.0.1\ci-environment-10.0.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-picocontainer\7.20.1\cucumber-picocontainer-7.20.1.jar;C:\Users\Msys\.m2\repository\org\picocontainer\picocontainer\2.15\picocontainer-2.15.jar;C:\Users\Msys\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.3\junit-jupiter-api-5.9.3.jar;C:\Users\Msys\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Msys\.m2\repository\org\junit\platform\junit-platform-commons\1.9.3\junit-platform-commons-1.9.3.jar;C:\Users\Msys\.m2\repository\org\junit\vintage\junit-vintage-engine\5.9.3\junit-vintage-engine-5.9.3.jar;C:\Users\Msys\.m2\repository\org\junit\platform\junit-platform-engine\1.9.3\junit-platform-engine-1.9.3.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Hebron"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="D:\comp arch\bin"/>
+    <property name="sun.java.command" value="C:\Users\Msys\AppData\Local\Temp\surefire15045119245411534746\surefirebooter-20250103023935239_3.jar C:\Users\Msys\AppData\Local\Temp\surefire15045119245411534746 2025-01-03T02-39-34_500-jvmRun1 surefire-20250103023935239_1tmp surefire_0-20250103023935239_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\Msys\eclipse-workspace\fit\target\test-classes;C:\Users\Msys\eclipse-workspace\fit\target\classes;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-java\7.20.1\cucumber-java-7.20.1.jar;C:\Users\Msys\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-junit\7.20.1\cucumber-junit-7.20.1.jar;C:\Users\Msys\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Msys\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-core\7.20.1\cucumber-core-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-gherkin\7.20.1\cucumber-gherkin-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-gherkin-messages\7.20.1\cucumber-gherkin-messages-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\gherkin\28.0.0\gherkin-28.0.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\messages\24.1.0\messages-24.1.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\testng-xml-formatter\0.2.0\testng-xml-formatter-0.2.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\query\12.2.0\query-12.2.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\tag-expressions\6.1.0\tag-expressions-6.1.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-expressions\17.1.0\cucumber-expressions-17.1.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\datatable\7.20.1\datatable-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-plugin\7.20.1\cucumber-plugin-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\docstring\7.20.1\docstring-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\html-formatter\21.7.0\html-formatter-21.7.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\junit-xml-formatter\0.5.0\junit-xml-formatter-0.5.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\ci-environment\10.0.1\ci-environment-10.0.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-picocontainer\7.20.1\cucumber-picocontainer-7.20.1.jar;C:\Users\Msys\.m2\repository\org\picocontainer\picocontainer\2.15\picocontainer-2.15.jar;C:\Users\Msys\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.3\junit-jupiter-api-5.9.3.jar;C:\Users\Msys\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Msys\.m2\repository\org\junit\platform\junit-platform-commons\1.9.3\junit-platform-commons-1.9.3.jar;C:\Users\Msys\.m2\repository\org\junit\vintage\junit-vintage-engine\5.9.3\junit-vintage-engine-5.9.3.jar;C:\Users\Msys\.m2\repository\org\junit\platform\junit-platform-engine\1.9.3\junit-platform-engine-1.9.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Msys"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-01-16"/>
+    <property name="java.home" value="D:\comp arch"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\Msys\eclipse-workspace\fit"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\Msys\AppData\Local\Temp\surefire15045119245411534746\surefirebooter-20250103023935239_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
+    <property name="user.name" value="Msys"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\Msys\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Msys\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.2"/>
+    <property name="user.dir" value="C:\Users\Msys\eclipse-workspace\fit"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="D:\comp arch\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\MinGW\bin;C:\Users\Msys\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\Msys\AppData\Local\Programs\Python\Python38\;C:\Users\Msys\AppData\Local\Microsoft\WindowsApps;C:\Users\Msys\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Msys\AppData\Roaming\Composer\vendor\bin;C:\Program Files\Git\cmd;C:\Users\Msys\AppData\Local\GitHubDesktop\bin;C:\Users\Msys\Downloads\apache-maven-3.9.9-bin\apache-maven-3.9.9\bin;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.2+13-LTS-58"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="Adding a new user" classname="User Management" time="0.224">
+    <system-out><![CDATA[
+Scenario: Adding a new user                                                      # src/feature/ UserManagement.feature:6
+  Given I am logged in as an admin                                               # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
+  When I add a new user "omar" with email "omar@gmail.com" and role "Instructor" # fit.UserManagementSteps.iAddANewUser(java.lang.String,java.lang.String,java.lang.String)
+  Then the user "omar" should be added successfully                              # fit.UserManagementSteps.theUserShouldBeAddedSuccessfully(java.lang.String)
+]]></system-out>
+    <system-err><![CDATA[java.lang.instrument.IllegalClassFormatException: Error while instrumenting javax/lang/model/SourceVersion.
+	at org.jacoco.agent.rt.internal_3570298.CoverageTransformer.transform(CoverageTransformer.java:94)
+	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
+	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+	at java.instrument/sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:610)
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1118)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:182)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:821)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassInModuleOrNull(BuiltinClassLoader.java:741)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:665)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:700)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:669)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at io.cucumber.core.resource.ClasspathSupport.requireValidPackageName(ClasspathSupport.java:41)
+	at io.cucumber.core.resource.ClasspathScanner.scanForClassesInPackage(ClasspathScanner.java:49)
+	at io.cucumber.core.resource.ClasspathScanner.scanForClassesInPackage(ClasspathScanner.java:115)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at io.cucumber.java.JavaBackend.loadGlue(JavaBackend.java:41)
+	at io.cucumber.core.runner.Runner.<init>(Runner.java:56)
+	at io.cucumber.core.runtime.ThreadLocalRunnerSupplier.createRunner(ThreadLocalRunnerSupplier.java:47)
+	at java.base/java.lang.ThreadLocal$SuppliedThreadLocal.initialValue(ThreadLocal.java:357)
+	at java.base/java.lang.ThreadLocal.setInitialValue(ThreadLocal.java:225)
+	at java.base/java.lang.ThreadLocal.get(ThreadLocal.java:194)
+	at java.base/java.lang.ThreadLocal.get(ThreadLocal.java:172)
+	at io.cucumber.core.runtime.ThreadLocalRunnerSupplier.get(ThreadLocalRunnerSupplier.java:40)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:35)
+	at io.cucumber.core.runtime.CucumberExecutionContext.getRunner(CucumberExecutionContext.java:140)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runBeforeAllHooks(CucumberExecutionContext.java:92)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runFeatures$6(CucumberExecutionContext.java:146)
+	at io.cucumber.core.runtime.CucumberExecutionContext.execute(CucumberExecutionContext.java:162)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runFeatures(CucumberExecutionContext.java:145)
+	at io.cucumber.junit.Cucumber$StartAndFinishTestRun.evaluate(Cucumber.java:229)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:42)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:72)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.lambda$execute$1(JUnitPlatformProvider.java:234)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:228)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:131)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+Caused by: java.io.IOException: Error while instrumenting javax/lang/model/SourceVersion.
+	at org.jacoco.agent.rt.internal_3570298.core.instr.Instrumenter.instrumentError(Instrumenter.java:160)
+	at org.jacoco.agent.rt.internal_3570298.core.instr.Instrumenter.instrument(Instrumenter.java:110)
+	at org.jacoco.agent.rt.internal_3570298.CoverageTransformer.transform(CoverageTransformer.java:92)
+	... 68 more
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 65
+	at org.jacoco.agent.rt.internal_3570298.asm.ClassReader.<init>(ClassReader.java:196)
+	at org.jacoco.agent.rt.internal_3570298.asm.ClassReader.<init>(ClassReader.java:177)
+	at org.jacoco.agent.rt.internal_3570298.asm.ClassReader.<init>(ClassReader.java:163)
+	at org.jacoco.agent.rt.internal_3570298.core.internal.instr.InstrSupport.classReaderFor(InstrSupport.java:280)
+	at org.jacoco.agent.rt.internal_3570298.core.instr.Instrumenter.instrument(Instrumenter.java:76)
+	at org.jacoco.agent.rt.internal_3570298.core.instr.Instrumenter.instrument(Instrumenter.java:108)
+	... 69 more
+]]></system-err>
+  </testcase>
+  <testcase name="Updating a user&apos;s role" classname="User Management" time="0.03">
+    <system-out><![CDATA[
+Scenario: Updating a user's role                                 # src/feature/ UserManagement.feature:11
+  Given I am logged in as an admin                               # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
+  When I update the role of user "rasmiya@gmail.com" to "Client" # fit.UserManagementSteps.iUpdateTheRoleOfUser(java.lang.String,java.lang.String)
+  Then the user's role should be updated to "Client"             # fit.UserManagementSteps.theUsersRoleShouldBeUpdatedTo(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Disabling a user&apos;s account" classname="User Management" time="0.019">
+    <system-out><![CDATA[
+Scenario: Disabling a user's account                  # src/feature/ UserManagement.feature:16
+  Given I am logged in as an admin                    # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
+  When I disable the account of user "hiba@gmail.com" # fit.UserManagementSteps.iDisableTheAccountOfUser(java.lang.String)
+  Then the account of "Hiba" should be disabled       # fit.UserManagementSteps.theAccountOfShouldBeDisabled(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Approving a new instructor registration" classname="User Management" time="0.02">
+    <system-out><![CDATA[
+Scenario: Approving a new instructor registration         # src/feature/ UserManagement.feature:21
+  Given I am logged in as an admin                        # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
+  When I approve the registration for "rasmiya@gmail.com" # fit.UserManagementSteps.iApproveTheRegistrationFor(java.lang.String)
+  Then "Rasmiya" should be approved as an instructor      # fit.UserManagementSteps.shouldBeApprovedAsAnInstructor(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Client updates personal details" classname="Account Management" time="0.031">
+    <system-out><![CDATA[
+Scenario: Client updates personal details                                                  # src/feature/AccountManagement.feature:4
+Logged in as client: Hiba
+  Given I am logged in as a general client "Hiba"                                          # fit.AccountManagementSteps.iAmLoggedInAsAGeneralClient(java.lang.String)
+Access denied. Please log in to manage your account.
+Navigated to the Account Management page.
+  When I navigate to the "Account Management" page                                         # fit.ProgramManagementSteps.iNavigateToThePage(java.lang.String)
+Username: Hiba
+  And I update my personal details with age "25" and fitness goals "Weight loss"           # fit.AccountManagementSteps.iUpdateMyPersonalDetailsWithAgeAndFitnessGoals(java.lang.String,java.lang.String)
+Expected Message: Personal details updated successfully
+Actual Result: Personal details updated successfully
+  Then I should see the account management message "Personal details updated successfully" # fit.AccountManagementSteps.iShouldSeeTheAccountManagementMessage(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Client updates dietary preferences" classname="Account Management" time="0.016">
+    <system-out><![CDATA[
+Scenario: Client updates dietary preferences                                                  # src/feature/AccountManagement.feature:10
+Logged in as client: Hiba
+  Given I am logged in as a general client "Hiba"                                             # fit.AccountManagementSteps.iAmLoggedInAsAGeneralClient(java.lang.String)
+Access denied. Please log in to manage your account.
+Navigated to the Account Management page.
+  When I navigate to the "Account Management" page                                            # fit.ProgramManagementSteps.iNavigateToThePage(java.lang.String)
+Updating dietary preferences for user: Hiba
+  And I update my dietary preferences to "Vegetarian"                                         # fit.AccountManagementSteps.iUpdateMyDietaryPreferences(java.lang.String)
+Expected Message: Dietary preferences updated successfully
+Actual Result: Dietary preferences updated successfully
+  Then I should see the account management message "Dietary preferences updated successfully" # fit.AccountManagementSteps.iShouldSeeTheAccountManagementMessage(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Admin updates user details" classname="Account Management" time="0.014">
+    <system-out><![CDATA[
+Scenario: Admin updates user details                             # src/feature/AccountManagement.feature:16
+  Given I am logged in as an admin "Wafaa"                       # fit.AccountManagementSteps.iAmLoggedInAsAnAdmin(java.lang.String)
+Access denied. Please log in to manage your account.
+Navigated to the User Management page.
+  When I navigate to the "User Management" page                  # fit.ProgramManagementSteps.iNavigateToThePage(java.lang.String)
+  And I select the user "Hiba"                                   # fit.AccountManagementSteps.iSelectTheUser(java.lang.String)
+  And I update the user's email to "hiba_updated@gmail.com"      # fit.AccountManagementSteps.iUpdateTheUserSEmailTo(java.lang.String)
+  Then I should see as admin "User details updated successfully" # fit.AccountManagementSteps.iShouldSeeAsAdmin(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Client tries to update account without logging in" classname="Account Management" time="0.013">
+    <system-out><![CDATA[
+Scenario: Client tries to update account without logging in                                               # src/feature/AccountManagement.feature:23
+User is not logged in.
+  Given I am not logged in                                                                                # fit.AccountManagementSteps.iAmNotLoggedIn()
+Access denied. Please log in to manage your account.
+Navigated to the Account Management page.
+  When I navigate to the "Account Management" page                                                        # fit.ProgramManagementSteps.iNavigateToThePage(java.lang.String)
+Expected Message: Access denied. Please log in to manage your account.
+Actual Result: Access denied. Please log in to manage your account.
+  Then I should see the account management message "Access denied. Please log in to manage your account." # fit.AccountManagementSteps.iShouldSeeTheAccountManagementMessage(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Client updates password" classname="Account Management" time="0.005">
+    <system-out><![CDATA[
+Scenario: Client updates password                                                  # src/feature/AccountManagement.feature:28
+Logged in as client: Sara
+  Given I am logged in as a general client "Sara"                                  # fit.AccountManagementSteps.iAmLoggedInAsAGeneralClient(java.lang.String)
+Access denied. Please log in to manage your account.
+Navigated to the Account Management page.
+  When I navigate to the "Account Management" page                                 # fit.ProgramManagementSteps.iNavigateToThePage(java.lang.String)
+Attempting to update password for user: Sara
+Password update result: Password updated successfully
+  And I update my password from "H1515" to "sara@2024"                             # fit.AccountManagementSteps.iUpdateMyPasswordFromTo(java.lang.String,java.lang.String)
+Expected Message: Password updated successfully
+Actual Result: Password updated successfully
+  Then I should see the account management message "Password updated successfully" # fit.AccountManagementSteps.iShouldSeeTheAccountManagementMessage(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Admin deletes a user account" classname="Account Management" time="0.014">
+    <system-out><![CDATA[
+Scenario: Admin deletes a user account                           # src/feature/AccountManagement.feature:34
+  Given I am logged in as an admin "Wafaa"                       # fit.AccountManagementSteps.iAmLoggedInAsAnAdmin(java.lang.String)
+Access denied. Please log in to manage your account.
+Navigated to the User Management page.
+  When I navigate to the "User Management" page                  # fit.ProgramManagementSteps.iNavigateToThePage(java.lang.String)
+  And I select the user "Hiba"                                   # fit.AccountManagementSteps.iSelectTheUser(java.lang.String)
+Attempting to delete user: Hiba
+Delete result: User account deleted successfully
+  And I click the delete button AM                               # fit.AccountManagementSteps.iClickTheDeleteButton()
+  Then I should see as admin "User account deleted successfully" # fit.AccountManagementSteps.iShouldSeeAsAdmin(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Client receives notification about a new program" classname="Notifications and Updates" time="0.014">
+    <system-out><![CDATA[
+Scenario: Client receives notification about a new program                         # src/feature/Notifications.feature:4
+Logged in as client: Hiba
+  Given I am logged in as a client "Hiba"                                          # fit.ProgramManagementSteps.iAmLoggedInAsAClient(java.lang.String)
+New program added and notification sent: Yoga for Beginners
+  When a new program "Yoga for Beginners" is added                                 # fit.NotificationsandUpdatesSteps.aNewProgramIsAdded(java.lang.String)
+Expected: New program available: Yoga for Beginners
+Actual: [New program available: Yoga for Beginners, Program updated: Yoga for Beginners, Program canceled: Yoga for Beginners]
+  Then I should receive a notification "New program available: Yoga for Beginners" # fit.NotificationsandUpdatesSteps.iShouldReceiveANotification(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Instructor receives notification about client enrollment" classname="Notifications and Updates" time="0.01">
+    <system-out><![CDATA[
+Scenario: Instructor receives notification about client enrollment                  # src/feature/Notifications.feature:9
+  Given I am logged in as an instructor "Rasmiya"                                   # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
+Enrollment notification sent: Client Hiba enrolled in Yoga for Beginners
+  When a client "Hiba" enrolls in the program "Yoga for Beginners"                  # fit.NotificationsandUpdatesSteps.aClientEnrollsInTheProgram(java.lang.String,java.lang.String)
+Expected: Client Hiba enrolled in Yoga for Beginners
+Actual: [Client Hiba enrolled in Yoga for Beginners, New message from Hiba: I have a question about my schedule.]
+  Then I should receive a notification "Client Hiba enrolled in Yoga for Beginners" # fit.NotificationsandUpdatesSteps.iShouldReceiveANotification(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Client receives notification about program updates" classname="Notifications and Updates" time="0.009">
+    <system-out><![CDATA[
+Scenario: Client receives notification about program updates                 # src/feature/Notifications.feature:14
+Logged in as client: Hiba
+  Given I am logged in as a client "Hiba"                                    # fit.ProgramManagementSteps.iAmLoggedInAsAClient(java.lang.String)
+Program updated notification sent: Yoga for Beginners
+  When the program "Yoga for Beginners" is updated                           # fit.NotificationsandUpdatesSteps.theProgramIsUpdated(java.lang.String)
+Expected: Program updated: Yoga for Beginners
+Actual: [New program available: Yoga for Beginners, Program updated: Yoga for Beginners, Program canceled: Yoga for Beginners]
+  Then I should receive a notification "Program updated: Yoga for Beginners" # fit.NotificationsandUpdatesSteps.iShouldReceiveANotification(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Instructor receives notification about a client message" classname="Notifications and Updates" time="0.007">
+    <system-out><![CDATA[
+Scenario: Instructor receives notification about a client message                                    # src/feature/Notifications.feature:19
+  Given I am logged in as an instructor "Rasmiya"                                                    # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
+Message notification sent: New message from Hiba: I have a question about my schedule.
+  When the client "Hiba" sends a message "I have a question about my schedule."                      # fit.NotificationsandUpdatesSteps.theClientSendsAMessage(java.lang.String,java.lang.String)
+Expected: New message from Hiba: I have a question about my schedule.
+Actual: [Client Hiba enrolled in Yoga for Beginners, New message from Hiba: I have a question about my schedule.]
+  Then I should receive a notification "New message from Hiba: I have a question about my schedule." # fit.NotificationsandUpdatesSteps.iShouldReceiveANotification(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Client receives notification about program cancellation" classname="Notifications and Updates" time="0">
+    <system-out><![CDATA[
+Scenario: Client receives notification about program cancellation             # src/feature/Notifications.feature:24
+Logged in as client: Hiba
+  Given I am logged in as a client "Hiba"                                     # fit.ProgramManagementSteps.iAmLoggedInAsAClient(java.lang.String)
+Cancellation notification sent: Yoga for Beginners
+  When the program "Yoga for Beginners" is canceled                           # fit.NotificationsandUpdatesSteps.theProgramIsCanceled(java.lang.String)
+Expected: Program canceled: Yoga for Beginners
+Actual: [New program available: Yoga for Beginners, Program updated: Yoga for Beginners, Program canceled: Yoga for Beginners]
+  Then I should receive a notification "Program canceled: Yoga for Beginners" # fit.NotificationsandUpdatesSteps.iShouldReceiveANotification(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Create a new fitness program successfully" classname="Program Management" time="0.01">
+    <system-out><![CDATA[
+Scenario: Create a new fitness program successfully                 # src/feature/ProgramManagement.feature:4
+  Given I am logged in as an instructor "Rasmiya"                   # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
+Access denied. Please log in to manage your account.
+Navigated to the Create Program page.
+  And I navigate to the "Create Program" page                       # fit.ProgramManagementSteps.iNavigateToThePage(java.lang.String)
+  When I enter a valid program title "Yoga for Beginners"           # fit.ProgramManagementSteps.i_enter_a_valid_program_title(java.lang.String)
+  And I enter a duration of "4 weeks"                               # fit.ProgramManagementSteps.i_enter_a_duration_of(java.lang.String)
+  And I define the goals as "Improve flexibility and reduce stress" # fit.ProgramManagementSteps.i_define_the_goals_as(java.lang.String)
+  And I set the price to "$50"                                      # fit.ProgramManagementSteps.i_set_the_price_to(java.lang.String)
+  And I save the program                                            # fit.ProgramManagementSteps.i_save_the_program()
+  Then I should see a message "Program created successfully"        # fit.ProgramManagementSteps.i_should_see_a_message(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Edit an existing fitness program" classname="Program Management" time="0.026">
+    <system-out><![CDATA[
+Scenario: Edit an existing fitness program                   # src/feature/ProgramManagement.feature:14
+  Given I am logged in as an instructor "Rasmiya"            # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
+Access denied. Please log in to manage your account.
+Navigated to the Manage Programs page.
+  And I navigate to the "Manage Programs" page               # fit.ProgramManagementSteps.iNavigateToThePage(java.lang.String)
+Program selected: Yoga for Beginners,4 weeks,Improve flexibility and reduce stress,$50
+  And I select the program "Yoga for Beginners"              # fit.ProgramManagementSteps.iSelectTheProgram(java.lang.String)
+  When I update the duration to "6 weeks"                    # fit.ProgramManagementSteps.i_update_the_duration_to(java.lang.String)
+  And I change the price to "$75"                            # fit.ProgramManagementSteps.i_change_the_price_to(java.lang.String)
+Changes saved successfully.
+  And I save the changes                                     # fit.ProgramManagementSteps.iSaveTheChanges()
+  Then I should see a message "Program updated successfully" # fit.ProgramManagementSteps.i_should_see_a_message(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Delete an existing fitness program" classname="Program Management" time="0.02">
+    <system-out><![CDATA[
+Scenario: Delete an existing fitness program                 # src/feature/ProgramManagement.feature:23
+  Given I am logged in as an instructor "Rasmiya"            # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
+Access denied. Please log in to manage your account.
+Navigated to the Manage Programs page.
+  And I navigate to the "Manage Programs" page               # fit.ProgramManagementSteps.iNavigateToThePage(java.lang.String)
+Program selected: Yoga for Beginners,4 weeks,Improve flexibility and reduce stress,$50
+  And I select the program "Yoga for Beginners"              # fit.ProgramManagementSteps.iSelectTheProgram(java.lang.String)
+  When I click the delete button                             # fit.ProgramManagementSteps.i_click_the_delete_button()
+Program deleted successfully: Yoga for Beginners
+  And I confirm the deletion                                 # fit.ProgramManagementSteps.iConfirmTheDeletion()
+  Then I should see a message "Program deleted successfully" # fit.ProgramManagementSteps.i_should_see_a_message(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Attempt to create a program without a title" classname="Program Management" time="0.007">
+    <system-out><![CDATA[
+Scenario: Attempt to create a program without a title            # src/feature/ProgramManagement.feature:31
+  Given I am logged in as an instructor "Rasmiya"                # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
+Access denied. Please log in to manage your account.
+Navigated to the Create Program page.
+  And I navigate to the "Create Program" page                    # fit.ProgramManagementSteps.iNavigateToThePage(java.lang.String)
+Program title field left empty.
+  When I leave the program title field empty                     # fit.ProgramManagementSteps.iLeaveTheProgramTitleFieldEmpty()
+Attempt to save a program without a title.
+  And I try to save the program                                  # fit.ProgramManagementSteps.iTryToSaveTheProgram()
+  Then I should see an error message "Program title is required" # fit.ProgramManagementSteps.iShouldSeeAnErrorMessage(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Non-instructor trying to manage programs" classname="Program Management" time="0.008">
+    <system-out><![CDATA[
+Scenario: Non-instructor trying to manage programs                                  # src/feature/ProgramManagement.feature:38
+Logged in as client: Hiba
+  Given I am logged in as a client "Hiba"                                           # fit.ProgramManagementSteps.iAmLoggedInAsAClient(java.lang.String)
+  When I try to navigate to the "Manage Programs" page                              # fit.ProgramManagementSteps.i_try_to_navigate_to_the_page(java.lang.String)
+  Then I should see a message "Access denied. Only instructors can manage programs" # fit.ProgramManagementSteps.i_should_see_a_message(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="View popular programs by enrollment" classname="Program Monitoring" time="0.006">
+    <system-out><![CDATA[
+Scenario: View popular programs by enrollment                                         # src/feature/ProgramMonitoring.feature:6
+  Given I am logged in as an admin for program monitoring                             # fit.ProgramMonitoringsteps.iAmLoggedInAsAnAdminForProgramMonitoring()
+  When I access the program statistics section                                        # fit.ProgramMonitoringsteps.iAccessTheProgramStatisticsSection()
+  Then I should see a list of programs sorted by their popularity based on enrollment # fit.ProgramMonitoringsteps.iShouldSeeAListOfProgramsSortedByTheirPopularityBasedOnEnrollment()
+]]></system-out>
+  </testcase>
+  <testcase name="Generate revenue reports" classname="Program Monitoring" time="0.009">
+    <system-out><![CDATA[
+Scenario: Generate revenue reports                                     # src/feature/ProgramMonitoring.feature:11
+  Given I am logged in as an admin for program monitoring              # fit.ProgramMonitoringsteps.iAmLoggedInAsAnAdminForProgramMonitoring()
+  When I select to generate a revenue report                           # fit.ProgramMonitoringsteps.iSelectToGenerateARevenueReport()
+  Then I should receive a detailed report on revenue sorted by program # fit.ProgramMonitoringsteps.iShouldReceiveADetailedReportOnRevenueSortedByProgram()
+]]></system-out>
+  </testcase>
+  <testcase name="Monitor attendance in programs" classname="Program Monitoring" time="0.007">
+    <system-out><![CDATA[
+Scenario: Monitor attendance in programs                   # src/feature/ProgramMonitoring.feature:16
+  Given I am logged in as an admin for program monitoring  # fit.ProgramMonitoringsteps.iAmLoggedInAsAnAdminForProgramMonitoring()
+  When I access the attendance tracking section            # fit.ProgramMonitoringsteps.iAccessTheAttendanceTrackingSection()
+  Then I should see attendance statistics for each program # fit.ProgramMonitoringsteps.iShouldSeeAttendanceStatisticsForEachProgram()
+]]></system-out>
+  </testcase>
+  <testcase name="Generate client progress reports" classname="Program Monitoring" time="0.01">
+    <system-out><![CDATA[
+Scenario: Generate client progress reports                                     # src/feature/ProgramMonitoring.feature:21
+  Given I am logged in as an admin for program monitoring                      # fit.ProgramMonitoringsteps.iAmLoggedInAsAnAdminForProgramMonitoring()
+  When I choose to generate a progress report for clients                      # fit.ProgramMonitoringsteps.iChooseToGenerateAProgressReportForClients()
+  Then I should receive a report detailing client progress in various programs # fit.ProgramMonitoringsteps.iShouldReceiveAReportDetailingClientProgressInVariousPrograms()
+]]></system-out>
+  </testcase>
+  <testcase name="Track active and completed programs" classname="Program Monitoring" time="0.006">
+    <system-out><![CDATA[
+Scenario: Track active and completed programs                            # src/feature/ProgramMonitoring.feature:26
+  Given I am logged in as an admin for program monitoring                # fit.ProgramMonitoringsteps.iAmLoggedInAsAnAdminForProgramMonitoring()
+  When I look at the current program roster                              # fit.ProgramMonitoringsteps.iLookAtTheCurrentProgramRoster()
+  Then I should see lists differentiating active from completed programs # fit.ProgramMonitoringsteps.iShouldSeeListsDifferentiatingActiveFromCompletedPrograms()
+]]></system-out>
+  </testcase>
+  <testcase name="Successful sign-up" classname="User Sign Up" time="0.014">
+    <system-out><![CDATA[
+Scenario: Successful sign-up                       # src/feature/Signup.feature:4
+Navigating to the sign-up page.
+  Given I am on the sign-up page                   # fit.Signupsteps.iAmOnTheSignUpPage()
+  When I enter a valid username "Khaled123"        # fit.Signupsteps.iEnterAValidUsername(java.lang.String)
+  And I enter a valid email "khaled123@gmail.com"  # fit.Signupsteps.iEnterAValidEmail(java.lang.String)
+  And I enter a valid role "Admin"                 # fit.Signupsteps.iEnterAValidRole(java.lang.String)
+  And I enter a valid password "Khaled234"         # fit.Signupsteps.iEnterAValidPassword(java.lang.String)
+  And I confirm the password "Khaled234"           # fit.Signupsteps.iConfirmThePassword(java.lang.String)
+  And I click the sign-up button                   # fit.Signupsteps.iClickTheSignUpButton()
+  Then I should see "Account created successfully" # fit.Signupsteps.iShouldSee(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Sign-up with invalid email" classname="User Sign Up" time="0.009">
+    <system-out><![CDATA[
+Scenario: Sign-up with invalid email                 # src/feature/Signup.feature:14
+Navigating to the sign-up page.
+  Given I am on the sign-up page                     # fit.Signupsteps.iAmOnTheSignUpPage()
+  When I enter a valid username "Ahmed2023"          # fit.Signupsteps.iEnterAValidUsername(java.lang.String)
+  And I enter an invalid email "ahmedemail.com"      # fit.Signupsteps.iEnterAnInvalidEmail(java.lang.String)
+  And I enter a valid role "Admin"                   # fit.Signupsteps.iEnterAValidRole(java.lang.String)
+  And I enter a valid password "Ahmed@1234"          # fit.Signupsteps.iEnterAValidPassword(java.lang.String)
+  And I confirm the password "Ahmed@1234"            # fit.Signupsteps.iConfirmThePassword(java.lang.String)
+  And I click the sign-up button                     # fit.Signupsteps.iClickTheSignUpButton()
+  Then I should see "Email must end with @gmail.com" # fit.Signupsteps.iShouldSee(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Sign-up with invalid password" classname="User Sign Up" time="0.014">
+    <system-out><![CDATA[
+Scenario: Sign-up with invalid password                                                           # src/feature/Signup.feature:24
+Navigating to the sign-up page.
+  Given I am on the sign-up page                                                                  # fit.Signupsteps.iAmOnTheSignUpPage()
+  When I enter a valid username "Mohammed123"                                                     # fit.Signupsteps.iEnterAValidUsername(java.lang.String)
+  And I enter a valid email "mohammed123@gmail.com"                                               # fit.Signupsteps.iEnterAValidEmail(java.lang.String)
+  And I enter a valid role "Instructor"                                                           # fit.Signupsteps.iEnterAValidRole(java.lang.String)
+  And I enter an invalid password "12345"                                                         # fit.Signupsteps.iEnterAnInvalidPassword(java.lang.String)
+  And I confirm the password "12345"                                                              # fit.Signupsteps.iConfirmThePassword(java.lang.String)
+  And I click the sign-up button                                                                  # fit.Signupsteps.iClickTheSignUpButton()
+  Then I should see "Password must be at least 6 characters long and contain at least one letter" # fit.Signupsteps.iShouldSee(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Passwords do not match" classname="User Sign Up" time="0.012">
+    <system-out><![CDATA[
+Scenario: Passwords do not match                                                    # src/feature/Signup.feature:34
+Navigating to the sign-up page.
+  Given I am on the sign-up page                                                    # fit.Signupsteps.iAmOnTheSignUpPage()
+  When I enter a valid username "Sarah"                                             # fit.Signupsteps.iEnterAValidUsername(java.lang.String)
+  And I enter a valid email "sarah@gmail.com"                                       # fit.Signupsteps.iEnterAValidEmail(java.lang.String)
+  And I enter a valid role "Client"                                                 # fit.Signupsteps.iEnterAValidRole(java.lang.String)
+  And I enter a valid password "Sarah@123"                                          # fit.Signupsteps.iEnterAValidPassword(java.lang.String)
+  And I confirm the password "Sarah@124"                                            # fit.Signupsteps.iConfirmThePassword(java.lang.String)
+  And I click the sign-up button                                                    # fit.Signupsteps.iClickTheSignUpButton()
+  Then I should see "Passwords do not match. Please make sure to confirm correctly" # fit.Signupsteps.iShouldSee(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Sign-up with invalid role" classname="User Sign Up" time="0.013">
+    <system-out><![CDATA[
+Scenario: Sign-up with invalid role                                                             # src/feature/Signup.feature:44
+Navigating to the sign-up page.
+  Given I am on the sign-up page                                                                # fit.Signupsteps.iAmOnTheSignUpPage()
+  When I enter a valid username "JohnDoe"                                                       # fit.Signupsteps.iEnterAValidUsername(java.lang.String)
+  And I enter a valid email "johndoe@gmail.com"                                                 # fit.Signupsteps.iEnterAValidEmail(java.lang.String)
+  And I enter an invalid role "Chef"                                                            # fit.Signupsteps.iEnterAnInvalidRole(java.lang.String)
+  And I enter a valid password "JohnDoe@123"                                                    # fit.Signupsteps.iEnterAValidPassword(java.lang.String)
+  And I confirm the password "JohnDoe@123"                                                      # fit.Signupsteps.iConfirmThePassword(java.lang.String)
+  And I click the sign-up button                                                                # fit.Signupsteps.iClickTheSignUpButton()
+  Then I should see "Invalid role. Available roles are: Admin, Instructor, Client, Store Owner" # fit.Signupsteps.iShouldSee(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Adding a subscription plan" classname="Subscription Management" time="0">
+    <system-out><![CDATA[
+Scenario: Adding a subscription plan           # src/feature/SubscriptionManagement.feature:6
+  Given I am logged in as an admin             # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
+  When I add a new plan "Elite" with price 200 # fit.SubscriptionManagement.iAddANewPlanWithPrice(java.lang.String,int)
+  Then the plan should be added                # fit.SubscriptionManagement.the_plan_should_be_added()
+]]></system-out>
+  </testcase>
+  <testcase name="Deleting a subscription plan" classname="Subscription Management" time="0.016">
+    <system-out><![CDATA[
+Scenario: Deleting a subscription plan # src/feature/SubscriptionManagement.feature:11
+  Given I am logged in as an admin     # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
+  And the plan "Basic" exists          # fit.SubscriptionManagement.thePlanExists(java.lang.String)
+  When I delete the plan "Basic"       # fit.SubscriptionManagement.iDeleteThePlan(java.lang.String)
+  Then it should be removed            # fit.SubscriptionManagement.itShouldBeRemoved()
+]]></system-out>
+  </testcase>
+  <testcase name="Rejecting a subscription upgrade request" classname="Subscription Management" time="0.011">
+    <system-out><![CDATA[
+Scenario: Rejecting a subscription upgrade request                    # src/feature/SubscriptionManagement.feature:17
+  Given I am logged in as an admin                                    # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
+  And a client has requested an upgrade with email "client@gmail.com" # fit.SubscriptionManagement.aClientHasRequestedAnUpgrade(java.lang.String)
+  When I reject the upgrade for client with email "client@gmail.com"  # fit.SubscriptionManagement.iRejectTheUpgrade(java.lang.String)
+  Then the client's subscription should stay the same                 # fit.SubscriptionManagement.theClientSSubscriptionShouldStayTheSame()
+Client has been notified about the rejection.
+  And the client should be notified                                   # fit.SubscriptionManagement.theClientShouldBeNotified()
+]]></system-out>
+  </testcase>
+  <testcase name="Sending a message to a client" classname="Client Interaction" time="0.016">
+    <system-out><![CDATA[
+Scenario: Sending a message to a client                                                     # src/feature/clientInteraction.feature:4
+  Given I am logged in as an instructor "Rasmiya"                                           # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
+Selected client: Hiba
+  And I select the client "Hiba"                                                            # fit.ClientInteractionSteps.iSelectTheClient(java.lang.String)
+  When I send a message "Great progress this week! Keep it up!"                             # fit.ClientInteractionSteps.iSendAMessage(java.lang.String)
+  Then the client "Hiba" should receive the message "Great progress this week! Keep it up!" # fit.ClientInteractionSteps.theClientShouldReceiveTheMessage(java.lang.String,java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Viewing client messages" classname="Client Interaction" time="0.005">
+    <system-out><![CDATA[
+Scenario: Viewing client messages                 # src/feature/clientInteraction.feature:10
+  Given I am logged in as an instructor "Rasmiya" # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
+Selected client: Hiba
+  And I select the client "Hiba"                  # fit.ClientInteractionSteps.iSelectTheClient(java.lang.String)
+  When I view the messages from the client        # fit.ClientInteractionSteps.iViewTheMessagesFromTheClient()
+Messages: [From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Instructor: grate Job, From Instructor: Great progress this week! Keep it up!, From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Instructor: hello, From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!]
+  Then I should see the client messages           # fit.ClientInteractionSteps.iShouldSeeTheClientMessages()
+]]></system-out>
+  </testcase>
+  <testcase name="Providing feedback to a client" classname="Client Interaction" time="0.019">
+    <system-out><![CDATA[
+Scenario: Providing feedback to a client                                                                       # src/feature/clientInteraction.feature:16
+  Given I am logged in as an instructor "Rasmiya"                                                              # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
+Selected client: Hiba
+  And I select the client "Hiba"                                                                               # fit.ClientInteractionSteps.iSelectTheClient(java.lang.String)
+  When I provide feedback "You need to focus more on consistency in your training."                            # fit.ClientInteractionSteps.iProvideFeedback(java.lang.String)
+  Then the client "Hiba" should receive the feedback "You need to focus more on consistency in your training." # fit.ClientInteractionSteps.theClientShouldReceiveTheFeedback(java.lang.String,java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Viewing client progress" classname="Client Interaction" time="0">
+    <system-out><![CDATA[
+Scenario: Viewing client progress                   # src/feature/clientInteraction.feature:22
+  Given I am logged in as an instructor "Rasmiya"   # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
+Selected client: Hiba
+  And I select the client "Hiba"                    # fit.ClientInteractionSteps.iSelectTheClient(java.lang.String)
+  When I view the client progress                   # fit.ClientInteractionSteps.iViewTheClientProgress()
+Progress for Hiba: Completed 3 out of 5 sessions this week.
+  Then I should see the progress details for "Hiba" # fit.ClientInteractionSteps.iShouldSeeTheProgressDetailsFor(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Responding to a discussion" classname="Client Interaction" time="0.023">
+    <system-out><![CDATA[
+Scenario: Responding to a discussion                                                    # src/feature/clientInteraction.feature:28
+  Given I am logged in as an instructor "Rasmiya"                                       # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
+Selected discussion with client: Hiba
+Messages: [From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Instructor: grate Job, From Instructor: Great progress this week! Keep it up!, From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Instructor: hello, From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!]
+  And I select the discussion with the client "Hiba"                                    # fit.ClientInteractionSteps.iSelectTheDiscussionWithTheClient(java.lang.String)
+  When I respond to the discussion with "I will adjust the program as needed."          # fit.ClientInteractionSteps.iRespondToTheDiscussionWith(java.lang.String)
+  Then the client "Hiba" should see the response "I will adjust the program as needed." # fit.ClientInteractionSteps.theClientShouldSeeTheResponse(java.lang.String,java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="Successful login with valid details" classname="User Login" time="0.007">
+    <system-out><![CDATA[
+Scenario: Successful login with valid details                     # src/feature/sign.feature:3
+  Given the user is on the login page                             # fit.SiginSteps.the_user_is_on_the_login_page()
+  When the user enters valid username and password "Wafaa"+"N002" # fit.SiginSteps.the_user_enters_valid_username_and_password(java.lang.String,java.lang.String)
+  And the user clicks the login button                            # fit.SiginSteps.the_user_clicks_the_login_button()
+  Then the user should be redirected to the dashboard             # fit.SiginSteps.the_user_should_be_redirected_to_the_dashboard()
+]]></system-out>
+  </testcase>
+  <testcase name="Unsuccessful login with invalid details" classname="User Login" time="0.01">
+    <system-out><![CDATA[
+Scenario: Unsuccessful login with invalid details                            # src/feature/sign.feature:10
+  Given the user is on the login page                                        # fit.SiginSteps.the_user_is_on_the_login_page()
+  When the user enters an invalid username or password "Rasmiya"+"0000"      # fit.SiginSteps.the_user_enters_invalid_username_or_password(java.lang.String,java.lang.String)
+  And the user clicks the login button                                       # fit.SiginSteps.the_user_clicks_the_login_button()
+  Then the user should see an error message indicating incorrect credentials # fit.SiginSteps.the_user_should_see_an_error_message_indicating_incorrect_credentials()
+]]></system-out>
+  </testcase>
+  <testcase name="Unsuccessful login with missing details" classname="User Login" time="0.004">
+    <system-out><![CDATA[
+Scenario: Unsuccessful login with missing details                                   # src/feature/sign.feature:16
+  Given the user is on the login page                                               # fit.SiginSteps.the_user_is_on_the_login_page()
+  When the user leaves the username or password field empty                         # fit.SiginSteps.the_user_leaves_the_username_or_password_field_empty()
+  And the user clicks the login button                                              # fit.SiginSteps.the_user_clicks_the_login_button()
+  Then the user should see an error message indicating that all fields are required # fit.SiginSteps.the_user_should_see_an_error_message_indicating_that_all_fields_are_required()
+]]></system-out>
+  </testcase>
+</testsuite>

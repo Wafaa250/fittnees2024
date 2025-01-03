@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SiginSource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fit</a> &gt; <a href="index.source.html" class="el_package">fit</a> &gt; <span class="el_source">SiginSource.java</span></div><h1>SiginSource.java</h1><pre class="source lang-java linenums">
+package fit;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+<span class="fc" id="L8">public class SiginSource {</span>
+<span class="fc" id="L9">    private boolean found = false;</span>
+<span class="fc" id="L10">    private boolean passFound = false;</span>
+    private String workRole;
+<span class="fc" id="L12">    private int checkValid = 0;</span>
+
+    public int getCheckValid() {
+<span class="fc" id="L15">        return checkValid;</span>
+    }
+
+    public void setCheckValid(int checkValid) {
+<span class="fc" id="L19">        this.checkValid = checkValid;</span>
+<span class="fc" id="L20">    }</span>
+
+    public void checkLoginValidInFile(String userName, String pass) {
+        // تحديد المسار الكامل للملف
+<span class="fc" id="L24">        String filePath = &quot;C:\\Users\\Msys\\eclipse-workspace\\fit\\src\\main\\resources\\Accounts.txt&quot;;</span>
+
+<span class="fc" id="L26">        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {</span>
+            String line;
+
+            // قراءة كل سطر في الملف
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">            while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L31">                String[] parts = line.split(&quot;,&quot;);</span>
+
+                // التحقق إذا كانت البيانات تحتوي على الأقل على 4 عناصر (اسم المستخدم، المدينة، البريد الإلكتروني، كلمة المرور)
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">                if (parts.length &gt;= 4) {</span>
+                    // التحقق من اسم المستخدم
+<span class="fc bfc" id="L36" title="All 2 branches covered.">                    if (parts[0].equals(userName)) {</span>
+<span class="fc" id="L37">                        found = true;</span>
+
+                        // التحقق من كلمة المرور
+<span class="fc bfc" id="L40" title="All 2 branches covered.">                        if (parts[3].equals(pass)) {</span>
+<span class="fc" id="L41">                            passFound = true;</span>
+<span class="fc" id="L42">                            setCheckValid(1);  // تعيين القيمة لتحديد أن تسجيل الدخول ناجح</span>
+                        }
+
+                        // تحديد الدور (الوظيفة)
+<span class="fc" id="L46">                        workRole = parts[4];</span>
+<span class="fc" id="L47">                        break;</span>
+                    }
+                }
+<span class="fc" id="L50">            }</span>
+<span class="nc" id="L51">        } catch (IOException e) {</span>
+<span class="nc" id="L52">            e.printStackTrace();</span>
+<span class="fc" id="L53">        }</span>
+<span class="fc" id="L54">    }</span>
+
+    public String getWorkRole() {
+<span class="nc" id="L57">        return workRole;</span>
+    }
+
+    public boolean getFoundAccount() {
+<span class="pc bpc" id="L61" title="1 of 4 branches missed.">        return found &amp;&amp; passFound;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

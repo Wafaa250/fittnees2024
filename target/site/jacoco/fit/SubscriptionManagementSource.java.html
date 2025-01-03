@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SubscriptionManagementSource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fit</a> &gt; <a href="index.source.html" class="el_package">fit</a> &gt; <span class="el_source">SubscriptionManagementSource.java</span></div><h1>SubscriptionManagementSource.java</h1><pre class="source lang-java linenums">package fit;
+
+import java.io.*;
+import java.util.*;
+
+public class SubscriptionManagementSource {
+
+<span class="fc" id="L8">    private Vector&lt;SubscriptionPlan&gt; plans = new Vector&lt;&gt;();</span>
+<span class="fc" id="L9">    private Vector&lt;Subscription&gt; subscriptions = new Vector&lt;&gt;();</span>
+<span class="fc" id="L10">    private Map&lt;String, String&gt; users = new HashMap&lt;&gt;(); // حفظ الـ Client ID بناءً على البريد الإلكتروني</span>
+<span class="fc" id="L11">    private Map&lt;String, String&gt; usernameMap = new HashMap&lt;&gt;();</span>
+
+    // تحميل بيانات المستخدمين من الملف
+<span class="fc" id="L14">    public SubscriptionManagementSource() {</span>
+<span class="fc" id="L15">        loadUsers();</span>
+<span class="fc" id="L16">    }</span>
+
+    // تحميل بيانات المستخدمين من ملف Accounts.txt
+ // تحميل بيانات المستخدمين من ملف Accounts.txt
+    private void loadUsers() {
+<span class="fc" id="L21">        String filePath = &quot;C:\\Users\\Msys\\eclipse-workspace\\fit\\src\\main\\resources\\Accounts.txt&quot;;</span>
+<span class="fc" id="L22">        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {</span>
+            String line;
+<span class="fc bfc" id="L24" title="All 2 branches covered.">            while ((line = br.readLine()) != null) {</span>
+<span class="fc" id="L25">                String[] user = line.split(&quot;,&quot;);</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">                if (user.length &gt;= 5) {</span>
+<span class="fc" id="L27">                    String username = user[0];</span>
+<span class="fc" id="L28">                    String email = user[2]; // البريد الإلكتروني</span>
+<span class="fc" id="L29">                    String clientId = user[3]; // Client ID</span>
+<span class="fc" id="L30">                    users.put(email, clientId); // تخزين البريد الإلكتروني و Client ID</span>
+<span class="fc" id="L31">                    usernameMap.put(clientId, username); // تخزين Client ID والاسم</span>
+                }
+<span class="fc" id="L33">            }</span>
+<span class="nc" id="L34">        } catch (IOException e) {</span>
+<span class="nc" id="L35">            System.err.println(&quot;Error reading accounts file: &quot; + e.getMessage());</span>
+<span class="fc" id="L36">        }</span>
+<span class="fc" id="L37">    }</span>
+
+
+    // البحث عن الـ Client ID باستخدام البريد الإلكتروني
+    public String getClientId(String email) {
+<span class="fc" id="L42">        return users.get(email); // إرجاع الـ Client ID بناءً على البريد الإلكتروني</span>
+    }
+
+    // إضافة خطة اشتراك جديدة
+    public boolean addSubscriptionPlan(String name, int price) {
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        for (SubscriptionPlan plan : plans) {</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">            if (plan.getName().equalsIgnoreCase(name)) {</span>
+<span class="nc" id="L49">                return false; // Plan already exists</span>
+            }
+<span class="nc" id="L51">        }</span>
+<span class="fc" id="L52">        plans.add(new SubscriptionPlan(name, price));</span>
+<span class="fc" id="L53">        savePlansToFile();</span>
+<span class="fc" id="L54">        return true;</span>
+    }
+
+    // تعديل خطة اشتراك موجودة
+    public boolean modifySubscriptionPlan(String oldName, String newName, int newPrice) {
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        for (SubscriptionPlan plan : plans) {</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">            if (plan.getName().equalsIgnoreCase(oldName)) {</span>
+<span class="nc" id="L61">                plan.setName(newName);</span>
+<span class="nc" id="L62">                plan.setPrice(newPrice);</span>
+<span class="nc" id="L63">                savePlansToFile();</span>
+<span class="nc" id="L64">                return true;</span>
+            }
+<span class="nc" id="L66">        }</span>
+<span class="nc" id="L67">        return false; // Plan not found to modify</span>
+    }
+
+    // حذف خطة اشتراك
+    public boolean deleteSubscriptionPlan(String name) {
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">        for (SubscriptionPlan plan : plans) {</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">            if (plan.getName().equalsIgnoreCase(name)) {</span>
+<span class="fc" id="L74">                plans.remove(plan);</span>
+<span class="fc" id="L75">                savePlansToFile();</span>
+<span class="fc" id="L76">                return true;</span>
+            }
+<span class="nc" id="L78">        }</span>
+<span class="nc" id="L79">        return false; // Plan not found</span>
+    }
+
+    // طلب ترقية اشتراك للعميل
+    public void requestUpgrade(String email) {
+<span class="fc" id="L84">        String clientId = getClientId(email);  // استخراج Client ID باستخدام البريد الإلكتروني</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">        if (clientId != null) {</span>
+<span class="fc" id="L86">            subscriptions.add(new Subscription(clientId, &quot;Upgrade Requested&quot;));</span>
+        } else {
+<span class="nc" id="L88">            System.out.println(&quot;Client not found!&quot;);</span>
+        }
+<span class="fc" id="L90">    }</span>
+
+    // رفض طلب ترقية الاشتراك للعميل
+    public boolean rejectSubscriptionUpgrade(String email) {
+<span class="fc" id="L94">        String clientId = getClientId(email);  // استخراج Client ID باستخدام البريد الإلكتروني</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">        for (Subscription subscription : subscriptions) {</span>
+<span class="pc bpc" id="L96" title="2 of 4 branches missed.">            if (subscription.getClientId().equals(clientId) &amp;&amp; subscription.getPlanName().equals(&quot;Upgrade Requested&quot;)) {</span>
+<span class="fc" id="L97">                subscription.setPlanName(&quot;Basic&quot;);  // الترقية تم رفضها، لذلك نعيد اشتراك العميل إلى الخطة الأساسية</span>
+<span class="fc" id="L98">                saveSubscriptionsToFile();</span>
+<span class="fc" id="L99">                return true; // رفض الترقية بنجاح</span>
+            }
+<span class="nc" id="L101">        }</span>
+<span class="nc" id="L102">        return false; // لم يتم العثور على طلب ترقية</span>
+    }
+
+    // دالة لإلغاء اشتراك العميل بناءً على معرفه
+    public boolean cancelSubscription(String email) {
+<span class="nc" id="L107">        String clientId = getClientId(email);  // استخراج Client ID باستخدام البريد الإلكتروني</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        for (Subscription subscription : subscriptions) {</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">            if (subscription.getClientId().equals(clientId)) {</span>
+<span class="nc" id="L110">                subscriptions.remove(subscription);  // إزالة الاشتراك للعميل المحدد</span>
+<span class="nc" id="L111">                saveSubscriptionsToFile();  // حفظ التغييرات في الملف</span>
+<span class="nc" id="L112">                return true;</span>
+            }
+<span class="nc" id="L114">        }</span>
+<span class="nc" id="L115">        return false; // لم يتم العثور على الاشتراك</span>
+    }
+
+    // دالة لحفظ خطط الاشتراك في الملف
+    private void savePlansToFile() {
+<span class="fc" id="L120">        String filePath = &quot;C:\\Users\\Msys\\eclipse-workspace\\fit\\src\\main\\resources\\SubscriptionPlans.txt&quot;;</span>
+<span class="fc" id="L121">        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">            for (SubscriptionPlan plan : plans) {</span>
+<span class="fc" id="L123">                writer.write(plan.getName() + &quot;,&quot; + plan.getPrice());</span>
+<span class="fc" id="L124">                writer.newLine();</span>
+<span class="fc" id="L125">            }</span>
+<span class="nc" id="L126">        } catch (IOException e) {</span>
+<span class="nc" id="L127">            e.printStackTrace();</span>
+<span class="fc" id="L128">        }</span>
+<span class="fc" id="L129">    }</span>
+    private String getEmailFromClientId(String clientId) {
+<span class="nc bnc" id="L131" title="All 2 branches missed.">        for (Map.Entry&lt;String, String&gt; entry : users.entrySet()) {</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">            if (entry.getValue().equals(clientId)) {</span>
+<span class="nc" id="L133">                return entry.getKey();</span>
+            }
+<span class="nc" id="L135">        }</span>
+<span class="nc" id="L136">        return null;</span>
+    }
+
+    private String getUsernameFromEmail(String email) {
+        // لتنفيذ هذه الدالة، يجب أن يكون لديك خريطة تربط البريد الإلكتروني بأسماء المستخدمين
+<span class="nc" id="L141">        return usernameMap.get(email);  // يجب تعريف usernameMap وتعبئته بمناسبة تحميل البيانات</span>
+    }
+
+    // دالة لحفظ الاشتراكات في الملف
+    private void saveSubscriptionsToFile() {
+<span class="fc" id="L146">        String filePath = &quot;C:\\Users\\Msys\\eclipse-workspace\\fit\\src\\main\\resources\\Subscriptions.txt&quot;;</span>
+<span class="fc" id="L147">        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {</span>
+<span class="fc bfc" id="L148" title="All 2 branches covered.">            for (Subscription subscription : subscriptions) {</span>
+<span class="fc" id="L149">                String username = usernameMap.get(subscription.getClientId()); // استخراج اسم المستخدم باستخدام Client ID</span>
+<span class="pc bpc" id="L150" title="1 of 2 branches missed.">                if (username != null) {</span>
+<span class="fc" id="L151">                    writer.write(username + &quot;,&quot; + subscription.getPlanName()); // تخزين اسم المستخدم بدلاً من Client ID</span>
+<span class="fc" id="L152">                    writer.newLine();</span>
+                } else {
+<span class="nc" id="L154">                    System.err.println(&quot;No username found for clientId: &quot; + subscription.getClientId());</span>
+                }
+<span class="fc" id="L156">            }</span>
+<span class="nc" id="L157">        } catch (IOException e) {</span>
+<span class="nc" id="L158">            System.err.println(&quot;Error writing to subscriptions file: &quot; + e.getMessage());</span>
+<span class="fc" id="L159">        }</span>
+<span class="fc" id="L160">    }</span>
+    public boolean addSubscription(String email, String planName) {
+<span class="nc" id="L162">        String clientId = getClientId(email);</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">        if (clientId != null) {</span>
+<span class="nc" id="L164">            Subscription newSubscription = new Subscription(clientId, planName);</span>
+<span class="nc" id="L165">            subscriptions.add(newSubscription);</span>
+<span class="nc" id="L166">            saveSubscriptionsToFile();</span>
+        //    System.out.println(&quot;Subscription added successfully.&quot;); // رسالة التأكيد
+<span class="nc" id="L168">            return true;</span>
+        } else {
+<span class="nc" id="L170">            System.out.println(&quot;Client not found.&quot;);</span>
+<span class="nc" id="L171">            return false;</span>
+        }
+    }
+
+
+    // الكلاسات الداخلية الخاصة بخطط الاشتراك والاشتراكات
+    public static class SubscriptionPlan {
+        private String name;
+        private int price;
+
+<span class="fc" id="L181">        public SubscriptionPlan(String name, int price) {</span>
+<span class="fc" id="L182">            this.name = name;</span>
+<span class="fc" id="L183">            this.price = price;</span>
+<span class="fc" id="L184">        }</span>
+
+        public String getName() {
+<span class="fc" id="L187">            return name;</span>
+        }
+
+        public void setName(String name) {
+<span class="nc" id="L191">            this.name = name;</span>
+<span class="nc" id="L192">        }</span>
+
+        public int getPrice() {
+<span class="fc" id="L195">            return price;</span>
+        }
+
+        public void setPrice(int price) {
+<span class="nc" id="L199">            this.price = price;</span>
+<span class="nc" id="L200">        }</span>
+    }
+
+    public static class Subscription {
+        private String clientId;
+        private String planName;
+
+<span class="fc" id="L207">        public Subscription(String clientId, String planName) {</span>
+<span class="fc" id="L208">            this.clientId = clientId;</span>
+<span class="fc" id="L209">            this.planName = planName;</span>
+<span class="fc" id="L210">        }</span>
+
+        public String getClientId() {
+<span class="fc" id="L213">            return clientId;</span>
+        }
+
+        public String getPlanName() {
+<span class="fc" id="L217">            return planName;</span>
+        }
+
+        public void setPlanName(String planName) {
+<span class="fc" id="L221">            this.planName = planName;</span>
+<span class="fc" id="L222">        }</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

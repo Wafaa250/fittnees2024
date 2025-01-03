@@ -1,0 +1,15 @@
+fit\ProgramMonitoring$FitnessProgram.class
+fit\main.class
+fit\User.class
+fit\ProgramMonitoring.class
+fit\SiginSource.class
+fit\UserManagementSource.class
+fit\AccountManagement.class
+fit\SubscriptionManagementSource$SubscriptionPlan.class
+fit\SubscriptionManagementSource.class
+fit\NotificationsAndUpdates.class
+fit\SubscriptionManagementSource$Subscription.class
+fit\SignupSource.class
+fit\ClientInteraction.class
+fit\ProgramManagement.class
+fit\SignupSource$User.class

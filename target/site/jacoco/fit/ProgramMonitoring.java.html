@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProgramMonitoring.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fit</a> &gt; <a href="index.source.html" class="el_package">fit</a> &gt; <span class="el_source">ProgramMonitoring.java</span></div><h1>ProgramMonitoring.java</h1><pre class="source lang-java linenums">package fit;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class ProgramMonitoring {
+
+    private List&lt;FitnessProgram&gt; programs;
+
+<span class="fc" id="L10">    public ProgramMonitoring() {</span>
+<span class="fc" id="L11">        this.programs = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L12">        initializePrograms();</span>
+<span class="fc" id="L13">    }</span>
+
+    // Initialize dummy programs for demonstration purposes
+    private void initializePrograms() {
+<span class="fc" id="L17">        programs.add(new FitnessProgram(&quot;Yoga Basics&quot;, 50, 1200.0, 30, true));</span>
+<span class="fc" id="L18">        programs.add(new FitnessProgram(&quot;Advanced Cardio&quot;, 75, 2500.0, 50, true));</span>
+<span class="fc" id="L19">        programs.add(new FitnessProgram(&quot;Strength Training&quot;, 40, 1800.0, 20, false));</span>
+<span class="fc" id="L20">        programs.add(new FitnessProgram(&quot;Pilates Essentials&quot;, 60, 2100.0, 45, true));</span>
+<span class="fc" id="L21">    }</span>
+
+    // View popular programs by enrollment
+    public List&lt;FitnessProgram&gt; getPopularPrograms() {
+<span class="fc" id="L25">        return programs.stream()</span>
+<span class="fc" id="L26">                .sorted((p1, p2) -&gt; Integer.compare(p2.getEnrollment(), p1.getEnrollment()))</span>
+<span class="fc" id="L27">                .collect(Collectors.toList());</span>
+    }
+
+    // Generate revenue report
+    public Map&lt;String, Double&gt; generateRevenueReport() {
+<span class="fc" id="L32">        return programs.stream()</span>
+<span class="fc" id="L33">                .collect(Collectors.toMap(FitnessProgram::getName, FitnessProgram::getRevenue));</span>
+    }
+
+    // Monitor attendance in programs
+    public Map&lt;String, Integer&gt; getAttendanceStatistics() {
+<span class="fc" id="L38">        return programs.stream()</span>
+<span class="fc" id="L39">                .collect(Collectors.toMap(FitnessProgram::getName, FitnessProgram::getAttendance));</span>
+    }
+
+    // Generate client progress report
+    public Map&lt;String, String&gt; generateClientProgressReport() {
+<span class="fc" id="L44">        Map&lt;String, String&gt; clientProgress = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L45">        clientProgress.put(&quot;Client A&quot;, &quot;Completed Yoga Basics, Active in Advanced Cardio&quot;);</span>
+<span class="fc" id="L46">        clientProgress.put(&quot;Client B&quot;, &quot;Completed Strength Training, Active in Pilates Essentials&quot;);</span>
+<span class="fc" id="L47">        return clientProgress;</span>
+    }
+
+    // Track active and completed programs
+    public Map&lt;String, List&lt;FitnessProgram&gt;&gt; getActiveAndCompletedPrograms() {
+<span class="fc" id="L52">        Map&lt;String, List&lt;FitnessProgram&gt;&gt; result = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L53">        result.put(&quot;Active&quot;, programs.stream().filter(FitnessProgram::isActive).collect(Collectors.toList()));</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        result.put(&quot;Completed&quot;, programs.stream().filter(p -&gt; !p.isActive()).collect(Collectors.toList()));</span>
+<span class="fc" id="L55">        return result;</span>
+    }
+
+    // Inner class to represent fitness programs
+    public static class FitnessProgram {
+        private String name;
+        private int enrollment;
+        private double revenue;
+        private int attendance;
+        private boolean active;
+
+<span class="fc" id="L66">        public FitnessProgram(String name, int enrollment, double revenue, int attendance, boolean active) {</span>
+<span class="fc" id="L67">            this.name = name;</span>
+<span class="fc" id="L68">            this.enrollment = enrollment;</span>
+<span class="fc" id="L69">            this.revenue = revenue;</span>
+<span class="fc" id="L70">            this.attendance = attendance;</span>
+<span class="fc" id="L71">            this.active = active;</span>
+<span class="fc" id="L72">        }</span>
+
+        public String getName() {
+<span class="fc" id="L75">            return name;</span>
+        }
+
+        public int getEnrollment() {
+<span class="fc" id="L79">            return enrollment;</span>
+        }
+
+        public double getRevenue() {
+<span class="fc" id="L83">            return revenue;</span>
+        }
+
+        public int getAttendance() {
+<span class="fc" id="L87">            return attendance;</span>
+        }
+
+        public boolean isActive() {
+<span class="fc" id="L91">            return active;</span>
+        }
+    }}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
