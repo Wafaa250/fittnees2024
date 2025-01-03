@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     
@@ -71,14 +71,13 @@
                     <includes>
                         <include>**/*Test.java</include>
                     </includes>
-                    <forkCount>2</forkCount>  <!-- إضافة لتشغيل الاختبارات في عمليات منفصلة -->
+                    <forkCount>2</forkCount>
                 </configuration>
             </plugin>
-     
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.7</version> <!-- تأكد من استخدام أحدث نسخة -->
+                <version>0.8.7</version>
                 <executions>
                     <execution>
                         <goals>
@@ -88,18 +87,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- إضافة إعدادات المترجم -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version> <!-- تأكد من استخدام النسخة المناسبة -->
-                <configuration>
-                    <source>21</source> <!-- قم بتحديد الإصدار الذي تستخدمه، هنا Java 21 -->
-                    <target>21</target> <!-- قم بتحديد الإصدار الهدف -->
-                </configuration>
-            </plugin>
-
         </plugins>
     </build>
 
