@@ -69,11 +69,10 @@
                     <forkCount>2</forkCount>  <!-- إضافة لتشغيل الاختبارات في عمليات منفصلة -->
                 </configuration>
             </plugin>
-     <properties>
+<properties>
   <sonar.organization>wafaafitt</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-</properties>
-                 
+</properties>   
         <plugin>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
