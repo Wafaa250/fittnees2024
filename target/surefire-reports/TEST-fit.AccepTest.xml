@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="fit.AccepTest" time="1.127" tests="41" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="fit.AccepTest" time="2.61" tests="41" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="D:\comp arch\bin"/>
-    <property name="sun.java.command" value="C:\Users\Msys\AppData\Local\Temp\surefire15045119245411534746\surefirebooter-20250103023935239_3.jar C:\Users\Msys\AppData\Local\Temp\surefire15045119245411534746 2025-01-03T02-39-34_500-jvmRun1 surefire-20250103023935239_1tmp surefire_0-20250103023935239_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Msys\AppData\Local\Temp\surefire8663577031586320334\surefirebooter-20250103142537983_3.jar C:\Users\Msys\AppData\Local\Temp\surefire8663577031586320334 2025-01-03T14-25-33_860-jvmRun1 surefire-20250103142537983_1tmp surefire_0-20250103142537983_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Msys\eclipse-workspace\fit\target\test-classes;C:\Users\Msys\eclipse-workspace\fit\target\classes;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-java\7.20.1\cucumber-java-7.20.1.jar;C:\Users\Msys\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-junit\7.20.1\cucumber-junit-7.20.1.jar;C:\Users\Msys\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Msys\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-core\7.20.1\cucumber-core-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-gherkin\7.20.1\cucumber-gherkin-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-gherkin-messages\7.20.1\cucumber-gherkin-messages-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\gherkin\28.0.0\gherkin-28.0.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\messages\24.1.0\messages-24.1.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\testng-xml-formatter\0.2.0\testng-xml-formatter-0.2.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\query\12.2.0\query-12.2.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\tag-expressions\6.1.0\tag-expressions-6.1.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-expressions\17.1.0\cucumber-expressions-17.1.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\datatable\7.20.1\datatable-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-plugin\7.20.1\cucumber-plugin-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\docstring\7.20.1\docstring-7.20.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\html-formatter\21.7.0\html-formatter-21.7.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\junit-xml-formatter\0.5.0\junit-xml-formatter-0.5.0.jar;C:\Users\Msys\.m2\repository\io\cucumber\ci-environment\10.0.1\ci-environment-10.0.1.jar;C:\Users\Msys\.m2\repository\io\cucumber\cucumber-picocontainer\7.20.1\cucumber-picocontainer-7.20.1.jar;C:\Users\Msys\.m2\repository\org\picocontainer\picocontainer\2.15\picocontainer-2.15.jar;C:\Users\Msys\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.3\junit-jupiter-api-5.9.3.jar;C:\Users\Msys\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Msys\.m2\repository\org\junit\platform\junit-platform-commons\1.9.3\junit-platform-commons-1.9.3.jar;C:\Users\Msys\.m2\repository\org\junit\vintage\junit-vintage-engine\5.9.3\junit-vintage-engine-5.9.3.jar;C:\Users\Msys\.m2\repository\org\junit\platform\junit-platform-engine\1.9.3\junit-platform-engine-1.9.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Msys\AppData\Local\Temp\surefire15045119245411534746\surefirebooter-20250103023935239_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Msys\AppData\Local\Temp\surefire8663577031586320334\surefirebooter-20250103142537983_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
@@ -58,7 +58,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="Adding a new user" classname="User Management" time="0.224">
+  <testcase name="Adding a new user" classname="User Management" time="0.379">
     <system-out><![CDATA[
 Scenario: Adding a new user                                                      # src/feature/ UserManagement.feature:6
   Given I am logged in as an admin                                               # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
@@ -150,7 +150,7 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 	... 69 more
 ]]></system-err>
   </testcase>
-  <testcase name="Updating a user&apos;s role" classname="User Management" time="0.03">
+  <testcase name="Updating a user&apos;s role" classname="User Management" time="0.05">
     <system-out><![CDATA[
 Scenario: Updating a user's role                                 # src/feature/ UserManagement.feature:11
   Given I am logged in as an admin                               # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
@@ -158,7 +158,7 @@ Scenario: Updating a user's role                                 # src/feature/ 
   Then the user's role should be updated to "Client"             # fit.UserManagementSteps.theUsersRoleShouldBeUpdatedTo(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Disabling a user&apos;s account" classname="User Management" time="0.019">
+  <testcase name="Disabling a user&apos;s account" classname="User Management" time="0.047">
     <system-out><![CDATA[
 Scenario: Disabling a user's account                  # src/feature/ UserManagement.feature:16
   Given I am logged in as an admin                    # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
@@ -166,7 +166,7 @@ Scenario: Disabling a user's account                  # src/feature/ UserManagem
   Then the account of "Hiba" should be disabled       # fit.UserManagementSteps.theAccountOfShouldBeDisabled(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Approving a new instructor registration" classname="User Management" time="0.02">
+  <testcase name="Approving a new instructor registration" classname="User Management" time="0.027">
     <system-out><![CDATA[
 Scenario: Approving a new instructor registration         # src/feature/ UserManagement.feature:21
   Given I am logged in as an admin                        # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
@@ -174,7 +174,7 @@ Scenario: Approving a new instructor registration         # src/feature/ UserMan
   Then "Rasmiya" should be approved as an instructor      # fit.UserManagementSteps.shouldBeApprovedAsAnInstructor(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Client updates personal details" classname="Account Management" time="0.031">
+  <testcase name="Client updates personal details" classname="Account Management" time="0.042">
     <system-out><![CDATA[
 Scenario: Client updates personal details                                                  # src/feature/AccountManagement.feature:4
 Logged in as client: Hiba
@@ -189,7 +189,7 @@ Actual Result: Personal details updated successfully
   Then I should see the account management message "Personal details updated successfully" # fit.AccountManagementSteps.iShouldSeeTheAccountManagementMessage(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Client updates dietary preferences" classname="Account Management" time="0.016">
+  <testcase name="Client updates dietary preferences" classname="Account Management" time="0.056">
     <system-out><![CDATA[
 Scenario: Client updates dietary preferences                                                  # src/feature/AccountManagement.feature:10
 Logged in as client: Hiba
@@ -204,7 +204,7 @@ Actual Result: Dietary preferences updated successfully
   Then I should see the account management message "Dietary preferences updated successfully" # fit.AccountManagementSteps.iShouldSeeTheAccountManagementMessage(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Admin updates user details" classname="Account Management" time="0.014">
+  <testcase name="Admin updates user details" classname="Account Management" time="0.026">
     <system-out><![CDATA[
 Scenario: Admin updates user details                             # src/feature/AccountManagement.feature:16
   Given I am logged in as an admin "Wafaa"                       # fit.AccountManagementSteps.iAmLoggedInAsAnAdmin(java.lang.String)
@@ -216,7 +216,7 @@ Navigated to the User Management page.
   Then I should see as admin "User details updated successfully" # fit.AccountManagementSteps.iShouldSeeAsAdmin(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Client tries to update account without logging in" classname="Account Management" time="0.013">
+  <testcase name="Client tries to update account without logging in" classname="Account Management" time="0.026">
     <system-out><![CDATA[
 Scenario: Client tries to update account without logging in                                               # src/feature/AccountManagement.feature:23
 User is not logged in.
@@ -229,7 +229,7 @@ Actual Result: Access denied. Please log in to manage your account.
   Then I should see the account management message "Access denied. Please log in to manage your account." # fit.AccountManagementSteps.iShouldSeeTheAccountManagementMessage(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Client updates password" classname="Account Management" time="0.005">
+  <testcase name="Client updates password" classname="Account Management" time="0.064">
     <system-out><![CDATA[
 Scenario: Client updates password                                                  # src/feature/AccountManagement.feature:28
 Logged in as client: Sara
@@ -245,7 +245,7 @@ Actual Result: Password updated successfully
   Then I should see the account management message "Password updated successfully" # fit.AccountManagementSteps.iShouldSeeTheAccountManagementMessage(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Admin deletes a user account" classname="Account Management" time="0.014">
+  <testcase name="Admin deletes a user account" classname="Account Management" time="0.037">
     <system-out><![CDATA[
 Scenario: Admin deletes a user account                           # src/feature/AccountManagement.feature:34
   Given I am logged in as an admin "Wafaa"                       # fit.AccountManagementSteps.iAmLoggedInAsAnAdmin(java.lang.String)
@@ -259,7 +259,7 @@ Delete result: User account deleted successfully
   Then I should see as admin "User account deleted successfully" # fit.AccountManagementSteps.iShouldSeeAsAdmin(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Client receives notification about a new program" classname="Notifications and Updates" time="0.014">
+  <testcase name="Client receives notification about a new program" classname="Notifications and Updates" time="0.042">
     <system-out><![CDATA[
 Scenario: Client receives notification about a new program                         # src/feature/Notifications.feature:4
 Logged in as client: Hiba
@@ -271,7 +271,7 @@ Actual: [New program available: Yoga for Beginners, Program updated: Yoga for Be
   Then I should receive a notification "New program available: Yoga for Beginners" # fit.NotificationsandUpdatesSteps.iShouldReceiveANotification(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Instructor receives notification about client enrollment" classname="Notifications and Updates" time="0.01">
+  <testcase name="Instructor receives notification about client enrollment" classname="Notifications and Updates" time="0.024">
     <system-out><![CDATA[
 Scenario: Instructor receives notification about client enrollment                  # src/feature/Notifications.feature:9
   Given I am logged in as an instructor "Rasmiya"                                   # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
@@ -282,7 +282,7 @@ Actual: [Client Hiba enrolled in Yoga for Beginners, New message from Hiba: I ha
   Then I should receive a notification "Client Hiba enrolled in Yoga for Beginners" # fit.NotificationsandUpdatesSteps.iShouldReceiveANotification(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Client receives notification about program updates" classname="Notifications and Updates" time="0.009">
+  <testcase name="Client receives notification about program updates" classname="Notifications and Updates" time="0.017">
     <system-out><![CDATA[
 Scenario: Client receives notification about program updates                 # src/feature/Notifications.feature:14
 Logged in as client: Hiba
@@ -294,7 +294,7 @@ Actual: [New program available: Yoga for Beginners, Program updated: Yoga for Be
   Then I should receive a notification "Program updated: Yoga for Beginners" # fit.NotificationsandUpdatesSteps.iShouldReceiveANotification(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Instructor receives notification about a client message" classname="Notifications and Updates" time="0.007">
+  <testcase name="Instructor receives notification about a client message" classname="Notifications and Updates" time="0.017">
     <system-out><![CDATA[
 Scenario: Instructor receives notification about a client message                                    # src/feature/Notifications.feature:19
   Given I am logged in as an instructor "Rasmiya"                                                    # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
@@ -305,7 +305,7 @@ Actual: [Client Hiba enrolled in Yoga for Beginners, New message from Hiba: I ha
   Then I should receive a notification "New message from Hiba: I have a question about my schedule." # fit.NotificationsandUpdatesSteps.iShouldReceiveANotification(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Client receives notification about program cancellation" classname="Notifications and Updates" time="0">
+  <testcase name="Client receives notification about program cancellation" classname="Notifications and Updates" time="0.023">
     <system-out><![CDATA[
 Scenario: Client receives notification about program cancellation             # src/feature/Notifications.feature:24
 Logged in as client: Hiba
@@ -317,7 +317,7 @@ Actual: [New program available: Yoga for Beginners, Program updated: Yoga for Be
   Then I should receive a notification "Program canceled: Yoga for Beginners" # fit.NotificationsandUpdatesSteps.iShouldReceiveANotification(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Create a new fitness program successfully" classname="Program Management" time="0.01">
+  <testcase name="Create a new fitness program successfully" classname="Program Management" time="0.021">
     <system-out><![CDATA[
 Scenario: Create a new fitness program successfully                 # src/feature/ProgramManagement.feature:4
   Given I am logged in as an instructor "Rasmiya"                   # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
@@ -332,7 +332,7 @@ Navigated to the Create Program page.
   Then I should see a message "Program created successfully"        # fit.ProgramManagementSteps.i_should_see_a_message(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Edit an existing fitness program" classname="Program Management" time="0.026">
+  <testcase name="Edit an existing fitness program" classname="Program Management" time="0.057">
     <system-out><![CDATA[
 Scenario: Edit an existing fitness program                   # src/feature/ProgramManagement.feature:14
   Given I am logged in as an instructor "Rasmiya"            # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
@@ -348,7 +348,7 @@ Changes saved successfully.
   Then I should see a message "Program updated successfully" # fit.ProgramManagementSteps.i_should_see_a_message(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Delete an existing fitness program" classname="Program Management" time="0.02">
+  <testcase name="Delete an existing fitness program" classname="Program Management" time="0.026">
     <system-out><![CDATA[
 Scenario: Delete an existing fitness program                 # src/feature/ProgramManagement.feature:23
   Given I am logged in as an instructor "Rasmiya"            # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
@@ -363,7 +363,7 @@ Program deleted successfully: Yoga for Beginners
   Then I should see a message "Program deleted successfully" # fit.ProgramManagementSteps.i_should_see_a_message(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Attempt to create a program without a title" classname="Program Management" time="0.007">
+  <testcase name="Attempt to create a program without a title" classname="Program Management" time="0.015">
     <system-out><![CDATA[
 Scenario: Attempt to create a program without a title            # src/feature/ProgramManagement.feature:31
   Given I am logged in as an instructor "Rasmiya"                # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
@@ -377,7 +377,7 @@ Attempt to save a program without a title.
   Then I should see an error message "Program title is required" # fit.ProgramManagementSteps.iShouldSeeAnErrorMessage(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Non-instructor trying to manage programs" classname="Program Management" time="0.008">
+  <testcase name="Non-instructor trying to manage programs" classname="Program Management" time="0.017">
     <system-out><![CDATA[
 Scenario: Non-instructor trying to manage programs                                  # src/feature/ProgramManagement.feature:38
 Logged in as client: Hiba
@@ -386,7 +386,7 @@ Logged in as client: Hiba
   Then I should see a message "Access denied. Only instructors can manage programs" # fit.ProgramManagementSteps.i_should_see_a_message(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="View popular programs by enrollment" classname="Program Monitoring" time="0.006">
+  <testcase name="View popular programs by enrollment" classname="Program Monitoring" time="0.016">
     <system-out><![CDATA[
 Scenario: View popular programs by enrollment                                         # src/feature/ProgramMonitoring.feature:6
   Given I am logged in as an admin for program monitoring                             # fit.ProgramMonitoringsteps.iAmLoggedInAsAnAdminForProgramMonitoring()
@@ -394,7 +394,7 @@ Scenario: View popular programs by enrollment                                   
   Then I should see a list of programs sorted by their popularity based on enrollment # fit.ProgramMonitoringsteps.iShouldSeeAListOfProgramsSortedByTheirPopularityBasedOnEnrollment()
 ]]></system-out>
   </testcase>
-  <testcase name="Generate revenue reports" classname="Program Monitoring" time="0.009">
+  <testcase name="Generate revenue reports" classname="Program Monitoring" time="0.027">
     <system-out><![CDATA[
 Scenario: Generate revenue reports                                     # src/feature/ProgramMonitoring.feature:11
   Given I am logged in as an admin for program monitoring              # fit.ProgramMonitoringsteps.iAmLoggedInAsAnAdminForProgramMonitoring()
@@ -402,7 +402,7 @@ Scenario: Generate revenue reports                                     # src/fea
   Then I should receive a detailed report on revenue sorted by program # fit.ProgramMonitoringsteps.iShouldReceiveADetailedReportOnRevenueSortedByProgram()
 ]]></system-out>
   </testcase>
-  <testcase name="Monitor attendance in programs" classname="Program Monitoring" time="0.007">
+  <testcase name="Monitor attendance in programs" classname="Program Monitoring" time="0.016">
     <system-out><![CDATA[
 Scenario: Monitor attendance in programs                   # src/feature/ProgramMonitoring.feature:16
   Given I am logged in as an admin for program monitoring  # fit.ProgramMonitoringsteps.iAmLoggedInAsAnAdminForProgramMonitoring()
@@ -410,7 +410,7 @@ Scenario: Monitor attendance in programs                   # src/feature/Program
   Then I should see attendance statistics for each program # fit.ProgramMonitoringsteps.iShouldSeeAttendanceStatisticsForEachProgram()
 ]]></system-out>
   </testcase>
-  <testcase name="Generate client progress reports" classname="Program Monitoring" time="0.01">
+  <testcase name="Generate client progress reports" classname="Program Monitoring" time="0.017">
     <system-out><![CDATA[
 Scenario: Generate client progress reports                                     # src/feature/ProgramMonitoring.feature:21
   Given I am logged in as an admin for program monitoring                      # fit.ProgramMonitoringsteps.iAmLoggedInAsAnAdminForProgramMonitoring()
@@ -418,7 +418,7 @@ Scenario: Generate client progress reports                                     #
   Then I should receive a report detailing client progress in various programs # fit.ProgramMonitoringsteps.iShouldReceiveAReportDetailingClientProgressInVariousPrograms()
 ]]></system-out>
   </testcase>
-  <testcase name="Track active and completed programs" classname="Program Monitoring" time="0.006">
+  <testcase name="Track active and completed programs" classname="Program Monitoring" time="0.014">
     <system-out><![CDATA[
 Scenario: Track active and completed programs                            # src/feature/ProgramMonitoring.feature:26
   Given I am logged in as an admin for program monitoring                # fit.ProgramMonitoringsteps.iAmLoggedInAsAnAdminForProgramMonitoring()
@@ -426,7 +426,7 @@ Scenario: Track active and completed programs                            # src/f
   Then I should see lists differentiating active from completed programs # fit.ProgramMonitoringsteps.iShouldSeeListsDifferentiatingActiveFromCompletedPrograms()
 ]]></system-out>
   </testcase>
-  <testcase name="Successful sign-up" classname="User Sign Up" time="0.014">
+  <testcase name="Successful sign-up" classname="User Sign Up" time="0.051">
     <system-out><![CDATA[
 Scenario: Successful sign-up                       # src/feature/Signup.feature:4
 Navigating to the sign-up page.
@@ -440,7 +440,7 @@ Navigating to the sign-up page.
   Then I should see "Account created successfully" # fit.Signupsteps.iShouldSee(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Sign-up with invalid email" classname="User Sign Up" time="0.009">
+  <testcase name="Sign-up with invalid email" classname="User Sign Up" time="0.024">
     <system-out><![CDATA[
 Scenario: Sign-up with invalid email                 # src/feature/Signup.feature:14
 Navigating to the sign-up page.
@@ -454,7 +454,7 @@ Navigating to the sign-up page.
   Then I should see "Email must end with @gmail.com" # fit.Signupsteps.iShouldSee(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Sign-up with invalid password" classname="User Sign Up" time="0.014">
+  <testcase name="Sign-up with invalid password" classname="User Sign Up" time="0.042">
     <system-out><![CDATA[
 Scenario: Sign-up with invalid password                                                           # src/feature/Signup.feature:24
 Navigating to the sign-up page.
@@ -468,7 +468,7 @@ Navigating to the sign-up page.
   Then I should see "Password must be at least 6 characters long and contain at least one letter" # fit.Signupsteps.iShouldSee(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Passwords do not match" classname="User Sign Up" time="0.012">
+  <testcase name="Passwords do not match" classname="User Sign Up" time="0.035">
     <system-out><![CDATA[
 Scenario: Passwords do not match                                                    # src/feature/Signup.feature:34
 Navigating to the sign-up page.
@@ -482,7 +482,7 @@ Navigating to the sign-up page.
   Then I should see "Passwords do not match. Please make sure to confirm correctly" # fit.Signupsteps.iShouldSee(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Sign-up with invalid role" classname="User Sign Up" time="0.013">
+  <testcase name="Sign-up with invalid role" classname="User Sign Up" time="0.022">
     <system-out><![CDATA[
 Scenario: Sign-up with invalid role                                                             # src/feature/Signup.feature:44
 Navigating to the sign-up page.
@@ -496,7 +496,7 @@ Navigating to the sign-up page.
   Then I should see "Invalid role. Available roles are: Admin, Instructor, Client, Store Owner" # fit.Signupsteps.iShouldSee(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Adding a subscription plan" classname="Subscription Management" time="0">
+  <testcase name="Adding a subscription plan" classname="Subscription Management" time="0.024">
     <system-out><![CDATA[
 Scenario: Adding a subscription plan           # src/feature/SubscriptionManagement.feature:6
   Given I am logged in as an admin             # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
@@ -504,7 +504,7 @@ Scenario: Adding a subscription plan           # src/feature/SubscriptionManagem
   Then the plan should be added                # fit.SubscriptionManagement.the_plan_should_be_added()
 ]]></system-out>
   </testcase>
-  <testcase name="Deleting a subscription plan" classname="Subscription Management" time="0.016">
+  <testcase name="Deleting a subscription plan" classname="Subscription Management" time="0.02">
     <system-out><![CDATA[
 Scenario: Deleting a subscription plan # src/feature/SubscriptionManagement.feature:11
   Given I am logged in as an admin     # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
@@ -513,7 +513,7 @@ Scenario: Deleting a subscription plan # src/feature/SubscriptionManagement.feat
   Then it should be removed            # fit.SubscriptionManagement.itShouldBeRemoved()
 ]]></system-out>
   </testcase>
-  <testcase name="Rejecting a subscription upgrade request" classname="Subscription Management" time="0.011">
+  <testcase name="Rejecting a subscription upgrade request" classname="Subscription Management" time="0.013">
     <system-out><![CDATA[
 Scenario: Rejecting a subscription upgrade request                    # src/feature/SubscriptionManagement.feature:17
   Given I am logged in as an admin                                    # fit.UserManagementSteps.iAmLoggedInAsAnAdmin()
@@ -524,7 +524,7 @@ Client has been notified about the rejection.
   And the client should be notified                                   # fit.SubscriptionManagement.theClientShouldBeNotified()
 ]]></system-out>
   </testcase>
-  <testcase name="Sending a message to a client" classname="Client Interaction" time="0.016">
+  <testcase name="Sending a message to a client" classname="Client Interaction" time="0.034">
     <system-out><![CDATA[
 Scenario: Sending a message to a client                                                     # src/feature/clientInteraction.feature:4
   Given I am logged in as an instructor "Rasmiya"                                           # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
@@ -534,18 +534,18 @@ Selected client: Hiba
   Then the client "Hiba" should receive the message "Great progress this week! Keep it up!" # fit.ClientInteractionSteps.theClientShouldReceiveTheMessage(java.lang.String,java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Viewing client messages" classname="Client Interaction" time="0.005">
+  <testcase name="Viewing client messages" classname="Client Interaction" time="0.016">
     <system-out><![CDATA[
 Scenario: Viewing client messages                 # src/feature/clientInteraction.feature:10
   Given I am logged in as an instructor "Rasmiya" # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
 Selected client: Hiba
   And I select the client "Hiba"                  # fit.ClientInteractionSteps.iSelectTheClient(java.lang.String)
   When I view the messages from the client        # fit.ClientInteractionSteps.iViewTheMessagesFromTheClient()
-Messages: [From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Instructor: grate Job, From Instructor: Great progress this week! Keep it up!, From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Instructor: hello, From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!]
+Messages: [From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Instructor: grate Job, From Instructor: Great progress this week! Keep it up!, From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Instructor: hello, From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!]
   Then I should see the client messages           # fit.ClientInteractionSteps.iShouldSeeTheClientMessages()
 ]]></system-out>
   </testcase>
-  <testcase name="Providing feedback to a client" classname="Client Interaction" time="0.019">
+  <testcase name="Providing feedback to a client" classname="Client Interaction" time="0.041">
     <system-out><![CDATA[
 Scenario: Providing feedback to a client                                                                       # src/feature/clientInteraction.feature:16
   Given I am logged in as an instructor "Rasmiya"                                                              # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
@@ -555,7 +555,7 @@ Selected client: Hiba
   Then the client "Hiba" should receive the feedback "You need to focus more on consistency in your training." # fit.ClientInteractionSteps.theClientShouldReceiveTheFeedback(java.lang.String,java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Viewing client progress" classname="Client Interaction" time="0">
+  <testcase name="Viewing client progress" classname="Client Interaction" time="0.033">
     <system-out><![CDATA[
 Scenario: Viewing client progress                   # src/feature/clientInteraction.feature:22
   Given I am logged in as an instructor "Rasmiya"   # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
@@ -566,18 +566,18 @@ Progress for Hiba: Completed 3 out of 5 sessions this week.
   Then I should see the progress details for "Hiba" # fit.ClientInteractionSteps.iShouldSeeTheProgressDetailsFor(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Responding to a discussion" classname="Client Interaction" time="0.023">
+  <testcase name="Responding to a discussion" classname="Client Interaction" time="0.04">
     <system-out><![CDATA[
 Scenario: Responding to a discussion                                                    # src/feature/clientInteraction.feature:28
   Given I am logged in as an instructor "Rasmiya"                                       # fit.ProgramManagementSteps.i_am_logged_in_as_an_instructor(java.lang.String)
 Selected discussion with client: Hiba
-Messages: [From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Instructor: grate Job, From Instructor: Great progress this week! Keep it up!, From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Instructor: hello, From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!]
+Messages: [From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Instructor: grate Job, From Instructor: Great progress this week! Keep it up!, From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Instructor: hello, From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!, From Rasmiya: I will adjust the program as needed., From Rasmiya: Great progress this week! Keep it up!]
   And I select the discussion with the client "Hiba"                                    # fit.ClientInteractionSteps.iSelectTheDiscussionWithTheClient(java.lang.String)
   When I respond to the discussion with "I will adjust the program as needed."          # fit.ClientInteractionSteps.iRespondToTheDiscussionWith(java.lang.String)
   Then the client "Hiba" should see the response "I will adjust the program as needed." # fit.ClientInteractionSteps.theClientShouldSeeTheResponse(java.lang.String,java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="Successful login with valid details" classname="User Login" time="0.007">
+  <testcase name="Successful login with valid details" classname="User Login" time="0.014">
     <system-out><![CDATA[
 Scenario: Successful login with valid details                     # src/feature/sign.feature:3
   Given the user is on the login page                             # fit.SiginSteps.the_user_is_on_the_login_page()
@@ -586,7 +586,7 @@ Scenario: Successful login with valid details                     # src/feature/
   Then the user should be redirected to the dashboard             # fit.SiginSteps.the_user_should_be_redirected_to_the_dashboard()
 ]]></system-out>
   </testcase>
-  <testcase name="Unsuccessful login with invalid details" classname="User Login" time="0.01">
+  <testcase name="Unsuccessful login with invalid details" classname="User Login" time="0.008">
     <system-out><![CDATA[
 Scenario: Unsuccessful login with invalid details                            # src/feature/sign.feature:10
   Given the user is on the login page                                        # fit.SiginSteps.the_user_is_on_the_login_page()
@@ -595,7 +595,7 @@ Scenario: Unsuccessful login with invalid details                            # s
   Then the user should see an error message indicating incorrect credentials # fit.SiginSteps.the_user_should_see_an_error_message_indicating_incorrect_credentials()
 ]]></system-out>
   </testcase>
-  <testcase name="Unsuccessful login with missing details" classname="User Login" time="0.004">
+  <testcase name="Unsuccessful login with missing details" classname="User Login" time="0.014">
     <system-out><![CDATA[
 Scenario: Unsuccessful login with missing details                                   # src/feature/sign.feature:16
   Given the user is on the login page                                               # fit.SiginSteps.the_user_is_on_the_login_page()
