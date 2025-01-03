@@ -6,10 +6,13 @@
     <groupId>healthy.sys</groupId>
     <artifactId>fit</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
+    <!-- الخصائص الخاصة بـ SonarQube -->
     <properties>
-  <sonar.organization>wafaafitt</sonar.organization>
-  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-</properties>
+        <sonar.organization>wafaafitt</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    </properties>
+
     <dependencies>
         <!-- Cucumber Java dependency -->
         <dependency>
@@ -59,31 +62,34 @@
     </dependencies>
 
     <build>
-       <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <version>3.1</version>
-    <configuration>
-        <source>21</source> <!-- أو 17 إذا كان لديك نسخة 17 -->
-        <target>21</target> <!-- أو 17 إذا كان لديك نسخة 17 -->
-    </configuration>
-</plugin>
+        <plugins>
+            <!-- Plugin لتشغيل اختبارات Cucumber -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <forkCount>2</forkCount>  <!-- إضافة لتشغيل الاختبارات في عمليات منفصلة -->
+                </configuration>
+            </plugin>
 
-     
-        <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.7</version> <!-- تأكد من استخدام أحدث نسخة -->
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>prepare-agent</goal>
-                        <goal>report</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-    </plugins>
-</build>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version> <!-- تأكد من استخدام أحدث نسخة -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
