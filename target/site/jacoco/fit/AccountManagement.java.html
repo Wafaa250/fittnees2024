@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AccountManagement.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fit</a> &gt; <a href="index.source.html" class="el_package">fit</a> &gt; <span class="el_source">AccountManagement.java</span></div><h1>AccountManagement.java</h1><pre class="source lang-java linenums">package fit;
+
+import java.io.*;
+import java.util.*;
+
+<span class="nc" id="L6">public class AccountManagement {</span>
+
+    private static final String ACCOUNTS_FILE = &quot;C:\\Users\\Msys\\eclipse-workspace\\fit\\src\\main\\resources\\Clientaccounts.txt&quot;;
+    private static final String MASTER_ACCOUNTS_FILE =  &quot;C:\\Users\\Msys\\eclipse-workspace\\fit\\src\\main\\resources\\Accounts.txt&quot;;
+
+<span class="fc" id="L11">    private static List&lt;String&gt; accountsData = new ArrayList&lt;&gt;();</span>
+   
+    
+    static {
+        try {
+<span class="fc" id="L16">            accountsData = readAccountsFromFile();</span>
+<span class="nc" id="L17">        } catch (IOException e) {</span>
+<span class="nc" id="L18">            System.out.println(&quot;Error loading accounts: &quot; + e.getMessage());</span>
+<span class="fc" id="L19">        }</span>
+<span class="fc" id="L20">    }</span>
+
+ // Method to update personal details
+    public static String updatePersonalDetails(String username, String age, String fitnessGoals) {
+        // Validate inputs
+<span class="pc bpc" id="L25" title="2 of 4 branches missed.">        if (username == null || username.isEmpty()) {</span>
+<span class="nc" id="L26">            return &quot;Username cannot be null or empty&quot;;</span>
+        }
+<span class="pc bpc" id="L28" title="3 of 6 branches missed.">        if (age == null || age.isEmpty() || !age.matches(&quot;\\d+&quot;)) { // Ensure age is numeric</span>
+<span class="nc" id="L29">            return &quot;Invalid age: must be a non-empty numeric value&quot;;</span>
+        }
+<span class="pc bpc" id="L31" title="2 of 4 branches missed.">        if (fitnessGoals == null || fitnessGoals.isEmpty()) {</span>
+<span class="nc" id="L32">            return &quot;Fitness goals cannot be null or empty&quot;;</span>
+        }
+
+        // Loop through accounts to find the user
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">        for (int i = 0; i &lt; accountsData.size(); i++) {</span>
+<span class="fc" id="L37">            String account = accountsData.get(i);</span>
+          //  System.out.println(&quot;Checking account: &quot; + account); // Debugging log
+
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">            if (account.startsWith(username + &quot;,&quot;)) { // Match username</span>
+<span class="fc" id="L41">                String[] details = account.split(&quot;,&quot;);</span>
+
+                // Ensure details array has sufficient fields
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">                if (details.length &lt; 7) {</span>
+<span class="nc" id="L45">                    details = Arrays.copyOf(details, 7); // Extend the array to 7 columns</span>
+<span class="nc bnc" id="L46" title="All 4 branches missed.">                    if (details[4] == null || details[4].isEmpty()) details[4] = &quot;None&quot;; // Default age</span>
+<span class="nc bnc" id="L47" title="All 4 branches missed.">                    if (details[5] == null || details[5].isEmpty()) details[5] = &quot;None&quot;; // Default fitness goal</span>
+<span class="nc bnc" id="L48" title="All 4 branches missed.">                    if (details[6] == null || details[6].isEmpty()) details[6] = &quot;None&quot;; // Default dietary preferences</span>
+                }
+
+                // Update age and fitness goals
+<span class="fc" id="L52">                details[4] = age; // Update age</span>
+<span class="fc" id="L53">                details[5] = fitnessGoals; // Update fitness goals</span>
+<span class="fc" id="L54">                accountsData.set(i, String.join(&quot;,&quot;, details));</span>
+
+                // Write updated data back to file
+                try {
+<span class="fc" id="L58">                    writeAccountsToFile(accountsData);</span>
+<span class="nc" id="L59">                } catch (IOException e) {</span>
+<span class="nc" id="L60">                    return &quot;Error updating personal details: &quot; + e.getMessage();</span>
+<span class="fc" id="L61">                }</span>
+
+<span class="fc" id="L63">                return &quot;Personal details updated successfully&quot;;</span>
+            }
+        }
+
+        // If user not found
+<span class="nc" id="L68">        return &quot;User not found&quot;;</span>
+    }
+
+ // Method to update dietary preferences
+    public static String updateDietaryPreferences(String username, String dietaryPreference) {
+        try {
+<span class="fc" id="L74">            List&lt;String&gt; accounts = new ArrayList&lt;&gt;(readAccountsFromFile());</span>
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">            for (int i = 0; i &lt; accounts.size(); i++) {</span>
+<span class="fc" id="L76">                String[] accountDetails = accounts.get(i).split(&quot;,&quot;);</span>
+
+                // Ensure array has enough fields (7 columns)
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">                if (accountDetails.length &lt; 7) {</span>
+<span class="nc" id="L80">                    accountDetails = Arrays.copyOf(accountDetails, 7);</span>
+<span class="nc bnc" id="L81" title="All 4 branches missed.">                    if (accountDetails[4] == null || accountDetails[4].isEmpty()) accountDetails[4] = &quot;None&quot;; // Default age</span>
+<span class="nc bnc" id="L82" title="All 4 branches missed.">                    if (accountDetails[5] == null || accountDetails[5].isEmpty()) accountDetails[5] = &quot;None&quot;; // Default fitness goal</span>
+<span class="nc bnc" id="L83" title="All 4 branches missed.">                    if (accountDetails[6] == null || accountDetails[6].isEmpty()) accountDetails[6] = &quot;None&quot;; // Default dietary preferences</span>
+                }
+
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">                if (accountDetails[0].equals(username)) {</span>
+<span class="fc" id="L87">                    accountDetails[6] = dietaryPreference; // Update dietary preference</span>
+<span class="fc" id="L88">                    accounts.set(i, String.join(&quot;,&quot;, accountDetails));</span>
+<span class="fc" id="L89">                    writeAccountsToFile(accounts);</span>
+<span class="fc" id="L90">                    return &quot;Dietary preferences updated successfully&quot;;</span>
+                }
+            }
+<span class="nc" id="L93">            return &quot;User not found&quot;;</span>
+<span class="nc" id="L94">        } catch (IOException e) {</span>
+<span class="nc" id="L95">            return &quot;Error updating dietary preferences: &quot; + e.getMessage();</span>
+        }
+    }
+
+
+
+    // Method to update a user's email (admin only)
+    public static String updateUserEmail(String username, String newEmail) {
+        try {
+<span class="fc" id="L104">            List&lt;String&gt; accounts = new ArrayList&lt;&gt;(readAccountsFromFile());</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">            for (int i = 0; i &lt; accounts.size(); i++) {</span>
+<span class="fc" id="L106">                String[] accountDetails = accounts.get(i).split(&quot;,&quot;);</span>
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">                if (accountDetails[0].equals(username)) {</span>
+<span class="fc" id="L108">                    accountDetails[2] = newEmail;</span>
+<span class="fc" id="L109">                    accounts.set(i, String.join(&quot;,&quot;, accountDetails));</span>
+<span class="fc" id="L110">                    writeAccountsToFile(accounts);</span>
+<span class="fc" id="L111">                    return &quot;User details updated successfully&quot;;</span>
+                }
+            }
+<span class="nc" id="L114">            return &quot;User not found&quot;;</span>
+<span class="nc" id="L115">        } catch (IOException e) {</span>
+<span class="nc" id="L116">            return &quot;Error updating user details: &quot; + e.getMessage();</span>
+        }
+    }
+
+   
+ // Method to delete a user account (admin only)
+    public static String deleteUser(String username) {
+        try {
+<span class="fc" id="L124">            List&lt;String&gt; accounts = new ArrayList&lt;&gt;(readAccountsFromFile());</span>
+<span class="fc" id="L125">            boolean userFound = false;</span>
+
+            // البحث عن المستخدم وحذفه
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">            for (int i = 0; i &lt; accounts.size(); i++) {</span>
+<span class="fc" id="L129">                String account = accounts.get(i);</span>
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">                if (account.startsWith(username + &quot;,&quot;)) {</span>
+<span class="fc" id="L131">                    accounts.remove(i);</span>
+<span class="fc" id="L132">                    userFound = true;</span>
+<span class="fc" id="L133">                    break;</span>
+                }
+            }
+
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">            if (userFound) {</span>
+<span class="fc" id="L138">                writeAccountsToFile(accounts); // كتابة التحديثات إلى الملف</span>
+<span class="fc" id="L139">                return &quot;User account deleted successfully&quot;;</span>
+            } else {
+<span class="nc" id="L141">                return &quot;User not found&quot;;</span>
+            }
+<span class="nc" id="L143">        } catch (IOException e) {</span>
+<span class="nc" id="L144">            return &quot;Error deleting user account: &quot; + e.getMessage();</span>
+        }
+    }
+
+
+    // Method to update the user's password
+  /*  public static String updatePassword(String username, String currentPassword, String newPassword) {
+        try {
+            // قراءة الحسابات من الملف
+            List&lt;String&gt; accounts = new ArrayList&lt;&gt;(readAccountsFromFile());
+            
+            // التحقق من وجود الحساب
+            boolean userFound = false;
+            for (int i = 0; i &lt; accounts.size(); i++) {
+                String[] accountDetails = accounts.get(i).split(&quot;,&quot;);
+
+                // التحقق من اسم المستخدم
+                if (accountDetails[0].equals(username)) {
+                    userFound = true;
+
+                    // التحقق من كلمة المرور الحالية
+                    if (!accountDetails[3].equals(currentPassword)) {
+                        return &quot;Current password is incorrect&quot;; // إذا كانت كلمة المرور غير صحيحة
+                    }
+
+                    // تحديث كلمة المرور
+                    accountDetails[3] = newPassword;
+                    accounts.set(i, String.join(&quot;,&quot;, accountDetails));
+
+                    // حفظ التغييرات في الملف
+                    writeAccountsToFile(accounts);
+                    return &quot;Password updated successfully&quot;;
+                }
+            }
+
+            // إذا لم يتم العثور على المستخدم
+            if (!userFound) {
+                return &quot;User not found&quot;;
+            }
+        } catch (IOException e) {
+            return &quot;Error updating password: &quot; + e.getMessage();
+        }
+
+        // حالة افتراضية (لا يجب أن تصل إلى هنا)
+        return &quot;Unexpected error occurred while updating password&quot;;
+    }*/
+
+ // تعديل طريقة updatePassword لتحديث كلمة المرور في كلا الملفين
+    public static String updatePassword(String username, String currentPassword, String newPassword) {
+<span class="fc" id="L193">        boolean updatedInClientAccounts = false;</span>
+<span class="fc" id="L194">        boolean updatedInMasterAccounts = false;</span>
+
+        try {
+            // تحديث كلمة المرور في ملف Clientaccounts.txt
+<span class="fc" id="L198">            updatedInClientAccounts = updatePasswordInFile(ACCOUNTS_FILE, username, currentPassword, newPassword);</span>
+
+            // تحديث كلمة المرور في ملف Accounts.txt
+<span class="fc" id="L201">            updatedInMasterAccounts = updatePasswordInFile(MASTER_ACCOUNTS_FILE, username, currentPassword, newPassword);</span>
+
+<span class="pc bpc" id="L203" title="2 of 4 branches missed.">            if (updatedInClientAccounts &amp;&amp; updatedInMasterAccounts) {</span>
+<span class="fc" id="L204">                return &quot;Password updated successfully&quot;;</span>
+<span class="nc bnc" id="L205" title="All 4 branches missed.">            } else if (!updatedInClientAccounts &amp;&amp; !updatedInMasterAccounts) {</span>
+<span class="nc" id="L206">                return &quot;User not found or current password incorrect in both files.&quot;;</span>
+<span class="nc bnc" id="L207" title="All 2 branches missed.">            } else if (!updatedInClientAccounts) {</span>
+<span class="nc" id="L208">                return &quot;Partial update: Failed to update in Clientaccounts.txt.&quot;;</span>
+            } else {
+<span class="nc" id="L210">                return &quot;Partial update: Failed to update in Accounts.txt.&quot;;</span>
+            }
+<span class="nc" id="L212">        } catch (IOException e) {</span>
+<span class="nc" id="L213">            return &quot;Error updating password: &quot; + e.getMessage();</span>
+        }
+    }
+
+
+
+    /*private static boolean updatePasswordInFile(String filePath, String username, String currentPassword, String newPassword) throws IOException {
+        boolean userFound = false;
+        List&lt;String&gt; accounts = new ArrayList&lt;&gt;(readAccountsFromFile(filePath));
+
+        for (int i = 0; i &lt; accounts.size(); i++) {
+            String[] accountDetails = accounts.get(i).split(&quot;,&quot;);
+
+            if (accountDetails[0].equals(username)) {
+                if (!accountDetails[3].equals(currentPassword)) {
+                    return false; // إذا كانت كلمة المرور الحالية غير صحيحة
+                }
+
+                accountDetails[3] = newPassword; // تحديث كلمة المرور
+                accounts.set(i, String.join(&quot;,&quot;, accountDetails));
+                userFound = true;
+                break;
+            }
+        }
+
+        if (userFound) {
+            writeAccountsToFile(filePath, accounts);
+        }
+
+        return userFound;
+    }*/
+    private static boolean updatePasswordInFile(String filePath, String username, String currentPassword, String newPassword) throws IOException {
+<span class="fc" id="L245">        boolean userFound = false;</span>
+<span class="fc" id="L246">        List&lt;String&gt; accounts = new ArrayList&lt;&gt;(readAccountsFromFile(filePath));</span>
+
+<span class="pc bpc" id="L248" title="1 of 2 branches missed.">        for (int i = 0; i &lt; accounts.size(); i++) {</span>
+<span class="fc" id="L249">            String[] accountDetails = accounts.get(i).split(&quot;,&quot;);</span>
+
+<span class="fc bfc" id="L251" title="All 2 branches covered.">            if (accountDetails[0].equals(username)) {</span>
+              //  System.out.println(&quot;Found user: &quot; + username + &quot; in file: &quot; + filePath); // Debugging log
+<span class="pc bpc" id="L253" title="1 of 2 branches missed.">                if (!accountDetails[3].equals(currentPassword)) {</span>
+<span class="nc" id="L254">                    System.out.println(&quot;Current password mismatch for user: &quot; + username + &quot; in file: &quot; + filePath); // Debugging log</span>
+<span class="nc" id="L255">                    return false; // إذا كانت كلمة المرور الحالية غير صحيحة</span>
+                }
+
+<span class="fc" id="L258">                accountDetails[3] = newPassword; // تحديث كلمة المرور</span>
+<span class="fc" id="L259">                accounts.set(i, String.join(&quot;,&quot;, accountDetails));</span>
+<span class="fc" id="L260">                userFound = true;</span>
+<span class="fc" id="L261">                break;</span>
+            }
+        }
+
+<span class="pc bpc" id="L265" title="1 of 2 branches missed.">        if (userFound) {</span>
+<span class="fc" id="L266">            writeAccountsToFile(filePath, accounts);</span>
+           // System.out.println(&quot;Password updated successfully for user: &quot; + username + &quot; in file: &quot; + filePath); // Debugging log
+        } else {
+<span class="nc" id="L269">            System.out.println(&quot;User not found in file: &quot; + filePath); // Debugging log</span>
+        }
+
+<span class="fc" id="L272">        return userFound;</span>
+    }
+
+
+
+    private static List&lt;String&gt; readAccountsFromFile(String filePath) throws IOException {
+<span class="fc" id="L278">        List&lt;String&gt; accounts = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L279">        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {</span>
+            String line;
+<span class="fc bfc" id="L281" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L282">                accounts.add(line);</span>
+            }
+        }
+<span class="fc" id="L285">        return accounts;</span>
+    }
+
+    private static void writeAccountsToFile(String filePath, List&lt;String&gt; accounts) throws IOException {
+<span class="fc" id="L289">        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {</span>
+<span class="fc bfc" id="L290" title="All 2 branches covered.">            for (String account : accounts) {</span>
+<span class="fc" id="L291">                writer.write(account);</span>
+<span class="fc" id="L292">                writer.newLine();</span>
+<span class="fc" id="L293">            }</span>
+        }
+<span class="fc" id="L295">    }</span>
+
+
+    public static List&lt;Map&lt;String, String&gt;&gt; viewAllUsers() {
+<span class="nc" id="L299">        List&lt;Map&lt;String, String&gt;&gt; usersList = new ArrayList&lt;&gt;();</span>
+        try {
+<span class="nc" id="L301">            List&lt;String&gt; accounts = readAccountsFromFile();</span>
+<span class="nc bnc" id="L302" title="All 2 branches missed.">            for (String account : accounts) {</span>
+<span class="nc" id="L303">                String[] details = account.split(&quot;,&quot;);</span>
+<span class="nc" id="L304">                Map&lt;String, String&gt; userMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L305">                userMap.put(&quot;Name&quot;, details[0]);</span>
+<span class="nc" id="L306">                userMap.put(&quot;Email&quot;, details[2]);</span>
+<span class="nc" id="L307">                userMap.put(&quot;Role&quot;, details[4]);</span>
+<span class="nc" id="L308">                usersList.add(userMap);</span>
+<span class="nc" id="L309">            }</span>
+<span class="nc" id="L310">        } catch (IOException e) {</span>
+<span class="nc" id="L311">            Map&lt;String, String&gt; errorMap = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L312">            errorMap.put(&quot;Error&quot;, &quot;Error reading user accounts: &quot; + e.getMessage());</span>
+<span class="nc" id="L313">            usersList.add(errorMap);</span>
+<span class="nc" id="L314">        }</span>
+<span class="nc" id="L315">        return usersList;</span>
+    }
+
+
+    // Helper method to read accounts from file
+    private static List&lt;String&gt; readAccountsFromFile() throws IOException {
+<span class="fc" id="L321">        List&lt;String&gt; accounts = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L322">        try (BufferedReader reader = new BufferedReader(new FileReader(ACCOUNTS_FILE))) {</span>
+            String line;
+<span class="fc bfc" id="L324" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L325">                accounts.add(line);</span>
+            }
+        }
+<span class="fc" id="L328">        return accounts;</span>
+    }
+
+    // Helper method to write accounts to file
+   private static void writeAccountsToFile(List&lt;String&gt; accounts) throws IOException {
+<span class="fc" id="L333">        try (BufferedWriter writer = new BufferedWriter(new FileWriter(ACCOUNTS_FILE))) {</span>
+<span class="fc bfc" id="L334" title="All 2 branches covered.">            for (String account : accounts) {</span>
+<span class="fc" id="L335">                writer.write(account);</span>
+<span class="fc" id="L336">                writer.newLine();</span>
+<span class="fc" id="L337">            }</span>
+        }
+<span class="fc" id="L339">    }</span>
+ 
+    public static String getAccount(String username) {
+<span class="fc bfc" id="L342" title="All 2 branches covered.">        for (String account : accountsData) {</span>
+<span class="fc bfc" id="L343" title="All 2 branches covered.">            if (account.startsWith(username + &quot;,&quot;)) {</span>
+<span class="fc" id="L344">                return account; // Return account details</span>
+            }
+<span class="fc" id="L346">        }</span>
+        // إذا لم يتم العثور على الحساب
+<span class="pc bpc" id="L348" title="1 of 2 branches missed.">        if (username.equals(&quot;Wafaa&quot;)) { // تحقق من اسم المستخدم إذا كان Admin</span>
+<span class="fc" id="L349">            return &quot;Wafaa,Admin,Wafaa_admin@gmail.com,Admin@2024,None,None,None&quot;; // بيانات افتراضية للـ Admin</span>
+        }
+<span class="nc" id="L351">        return null; // Return null if user not found</span>
+    }
+
+    
+    
+ 
+
+    // Method to update dietary preferences
+    public static String updateDietaryPreferences(String username, Map&lt;String, String&gt; preferences) {
+        // Implement logic for updating dietary preferences
+<span class="nc" id="L361">        return &quot;Dietary preferences updated successfully&quot;;</span>
+    }
+
+    // Method to change email
+    public static String changeEmail(String username, String newEmail) {
+<span class="nc bnc" id="L366" title="All 2 branches missed.">        for (int i = 0; i &lt; accountsData.size(); i++) {</span>
+<span class="nc" id="L367">            String account = accountsData.get(i);</span>
+<span class="nc bnc" id="L368" title="All 2 branches missed.">            if (account.startsWith(username + &quot;,&quot;)) {</span>
+<span class="nc" id="L369">                String[] details = account.split(&quot;,&quot;);</span>
+<span class="nc" id="L370">                details[2] = newEmail; // Update email</span>
+<span class="nc" id="L371">                accountsData.set(i, String.join(&quot;,&quot;, details));</span>
+                try {
+<span class="nc" id="L373">                    writeAccountsToFile(accountsData);</span>
+<span class="nc" id="L374">                } catch (IOException e) {</span>
+<span class="nc" id="L375">                    return &quot;Error updating email: &quot; + e.getMessage();</span>
+<span class="nc" id="L376">                }</span>
+<span class="nc" id="L377">                return &quot;Email updated successfully&quot;;</span>
+            }
+        }
+<span class="nc" id="L380">        return &quot;User not found&quot;;</span>
+    }
+
+    // Method to change password
+    public static String changePassword(String username, String newPassword) {
+<span class="nc bnc" id="L385" title="All 2 branches missed.">        for (int i = 0; i &lt; accountsData.size(); i++) {</span>
+<span class="nc" id="L386">            String account = accountsData.get(i);</span>
+<span class="nc bnc" id="L387" title="All 2 branches missed.">            if (account.startsWith(username + &quot;,&quot;)) {</span>
+<span class="nc" id="L388">                String[] details = account.split(&quot;,&quot;);</span>
+<span class="nc" id="L389">                details[3] = newPassword; // Update password</span>
+<span class="nc" id="L390">                accountsData.set(i, String.join(&quot;,&quot;, details));</span>
+                try {
+<span class="nc" id="L392">                    writeAccountsToFile(accountsData);</span>
+<span class="nc" id="L393">                } catch (IOException e) {</span>
+<span class="nc" id="L394">                    return &quot;Error updating password: &quot; + e.getMessage();</span>
+<span class="nc" id="L395">                }</span>
+<span class="nc" id="L396">                return &quot;Password updated successfully&quot;;</span>
+            }
+        }
+<span class="nc" id="L399">        return &quot;User not found&quot;;</span>
+    }
+
+    // Method to delete account
+    public static String deleteAccount(String username) {
+<span class="nc bnc" id="L404" title="All 2 branches missed.">        for (int i = 0; i &lt; accountsData.size(); i++) {</span>
+<span class="nc" id="L405">            String account = accountsData.get(i);</span>
+<span class="nc bnc" id="L406" title="All 2 branches missed.">            if (account.startsWith(username + &quot;,&quot;)) {</span>
+<span class="nc" id="L407">                accountsData.remove(i); // Remove the account</span>
+                try {
+<span class="nc" id="L409">                    writeAccountsToFile(accountsData);</span>
+<span class="nc" id="L410">                } catch (IOException e) {</span>
+<span class="nc" id="L411">                    return &quot;Error deleting account: &quot; + e.getMessage();</span>
+<span class="nc" id="L412">                }</span>
+<span class="nc" id="L413">                return &quot;Account deleted successfully&quot;;</span>
+            }
+        }
+<span class="nc" id="L416">        return &quot;User not found&quot;;</span>
+    }
+
+    // Method to get account details
+    public static Map&lt;String, String&gt; getAccountDetails(String username) {
+<span class="nc bnc" id="L421" title="All 2 branches missed.">        for (String account : accountsData) {</span>
+<span class="nc bnc" id="L422" title="All 2 branches missed.">            if (account.startsWith(username + &quot;,&quot;)) {</span>
+<span class="nc" id="L423">                String[] details = account.split(&quot;,&quot;);</span>
+<span class="nc" id="L424">                Map&lt;String, String&gt; accountDetails = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L425">                accountDetails.put(&quot;username&quot;, details[0]);</span>
+<span class="nc" id="L426">                accountDetails.put(&quot;email&quot;, details[2]);</span>
+<span class="nc" id="L427">                accountDetails.put(&quot;role&quot;, details[4]);</span>
+<span class="nc" id="L428">                return accountDetails;</span>
+            }
+<span class="nc" id="L430">        }</span>
+<span class="nc" id="L431">        return null; // Return null if user not found</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SignupSource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fit</a> &gt; <a href="index.source.html" class="el_package">fit</a> &gt; <span class="el_source">SignupSource.java</span></div><h1>SignupSource.java</h1><pre class="source lang-java linenums">package fit;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="fc" id="L11">public class SignupSource {</span>
+
+<span class="fc" id="L13">    private final List&lt;User&gt; users = new ArrayList&lt;&gt;();</span>
+
+    public String validateSignUp(String username, String email, String role, String password, String confirmPassword) {
+<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        if (!validateUsername(username)) {</span>
+<span class="nc" id="L17">            return &quot;Invalid username. It must be alphanumeric and not exceed 15 characters&quot;;</span>
+        }
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        if (!validateEmail(email)) {</span>
+<span class="fc" id="L20">            return &quot;Email must end with @gmail.com&quot;;</span>
+        }
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        if (isEmailUsed(email)) {</span>
+<span class="nc" id="L23">            return &quot;Email address is already in use. Please change it&quot;;</span>
+        }
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (!validatePassword(password)) {</span>
+<span class="fc" id="L26">            return &quot;Password must be at least 6 characters long and contain at least one letter&quot;;</span>
+        }
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (!password.equals(confirmPassword)) {</span>
+<span class="fc" id="L29">            return &quot;Passwords do not match. Please make sure to confirm correctly&quot;;</span>
+        }
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        if (!validateRole(role)) {</span>
+<span class="fc" id="L32">            return &quot;Invalid role. Available roles are: Admin, Instructor, Client, Store Owner&quot;;</span>
+        }
+
+<span class="fc" id="L35">        User newUser = new User(username, email, password, role);</span>
+<span class="fc" id="L36">        users.add(newUser);</span>
+
+        // حفظ البيانات في الملف بعد التحقق من صحة البيانات
+<span class="fc" id="L39">        saveUserToFile(newUser);</span>
+
+<span class="fc" id="L41">        return &quot;Account created successfully&quot;;</span>
+    }
+
+    private boolean validateUsername(String username) {
+<span class="fc" id="L45">        return username.matches(&quot;[A-Za-z0-9]{1,15}&quot;);</span>
+    }
+
+    private boolean validateEmail(String email) {
+<span class="pc bpc" id="L49" title="1 of 4 branches missed.">        return email.endsWith(&quot;@gmail.com&quot;) &amp;&amp; email.length() &gt; 10;</span>
+    }
+
+    private boolean validatePassword(String password) {
+<span class="pc bpc" id="L53" title="1 of 4 branches missed.">        return password.length() &gt;= 6 &amp;&amp; password.chars().anyMatch(Character::isLetter);</span>
+    }
+
+    private boolean validateRole(String role) {
+<span class="fc" id="L57">        String[] validRoles = {&quot;Admin&quot;, &quot;Instructor&quot;, &quot;Client&quot;, &quot;Store Owner&quot;};</span>
+<span class="fc" id="L58">        return List.of(validRoles).contains(role);</span>
+    }
+
+    private boolean isEmailUsed(String email) {
+<span class="fc" id="L62">        try (BufferedReader reader = new BufferedReader(new FileReader(&quot;C:\\Users\\Msys\\eclipse-workspace\\fit\\src\\main\\resources\\Accounts.txt&quot;))) {</span>
+            String line;
+<span class="fc bfc" id="L64" title="All 2 branches covered.">            while ((line = reader.readLine()) != null) {</span>
+<span class="fc" id="L65">                String[] details = line.split(&quot;,&quot;);</span>
+<span class="pc bpc" id="L66" title="2 of 4 branches missed.">                if (details.length &gt; 2 &amp;&amp; details[2].trim().equalsIgnoreCase(email.trim())) {</span>
+<span class="nc" id="L67">                    return true;  // البريد الإلكتروني موجود بالفعل</span>
+                }
+<span class="fc" id="L69">            }</span>
+<span class="nc" id="L70">        } catch (IOException e) {</span>
+<span class="nc" id="L71">            e.printStackTrace();</span>
+<span class="fc" id="L72">        }</span>
+<span class="fc" id="L73">        return false;  // البريد الإلكتروني غير موجود</span>
+    }
+
+
+
+    // دالة لحفظ المستخدم في ملف
+    private void saveUserToFile(User user) {
+<span class="fc" id="L80">        try (BufferedWriter writer = new BufferedWriter(new FileWriter(&quot;C:\\Users\\Msys\\eclipse-workspace\\fit\\src\\main\\resources\\Accounts.txt&quot;, true))) {</span>
+<span class="fc" id="L81">            writer.write(user.getUsername() + &quot;,&quot; + user.getLocation() + &quot;,&quot; + user.getEmail() + &quot;,&quot; + user.getPassword() + &quot;,&quot; + user.getRole());</span>
+<span class="fc" id="L82">            writer.newLine();</span>
+<span class="nc" id="L83">        } catch (IOException e) {</span>
+<span class="nc" id="L84">            e.printStackTrace();</span>
+<span class="fc" id="L85">        }</span>
+<span class="fc" id="L86">    }</span>
+
+    static class User {
+        private String username;
+        private String email;
+        private String password;
+        private String role;
+<span class="fc" id="L93">        private String location = &quot;Nablus&quot;; // إضافة موقع ثابت كمثال</span>
+
+<span class="fc" id="L95">        public User(String username, String email, String password, String role) {</span>
+<span class="fc" id="L96">            this.username = username;</span>
+<span class="fc" id="L97">            this.email = email;</span>
+<span class="fc" id="L98">            this.password = password;</span>
+<span class="fc" id="L99">            this.role = role;</span>
+<span class="fc" id="L100">        }</span>
+
+        public String getUsername() {
+<span class="fc" id="L103">            return username;</span>
+        }
+
+        public String getEmail() {
+<span class="fc" id="L107">            return email;</span>
+        }
+
+        public String getPassword() {
+<span class="fc" id="L111">            return password;</span>
+        }
+
+        public String getRole() {
+<span class="fc" id="L115">            return role;</span>
+        }
+
+        public String getLocation() {
+<span class="fc" id="L119">            return location;</span>
+        }
+    }
+ 
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

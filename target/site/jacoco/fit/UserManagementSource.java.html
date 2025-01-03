@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserManagementSource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fit</a> &gt; <a href="index.source.html" class="el_package">fit</a> &gt; <span class="el_source">UserManagementSource.java</span></div><h1>UserManagementSource.java</h1><pre class="source lang-java linenums">package fit;
+
+import java.util.HashMap;
+import java.util.Map;
+
+<span class="fc" id="L6">public class UserManagementSource {</span>
+<span class="fc" id="L7">    private Map&lt;String, User&gt; users = new HashMap&lt;&gt;(); // HashMap to store users with email as the key</span>
+
+    // Method to add a new user
+    public String addUser(String username, String city, String email, String password, String role) {
+<span class="pc bpc" id="L11" title="1 of 2 branches missed.">        if (users.containsKey(email.toLowerCase())) {</span>
+<span class="nc" id="L12">            return &quot;User already exists.&quot;;</span>
+        }
+<span class="fc" id="L14">        User newUser = new User(username, city, email.toLowerCase(), password, role);</span>
+<span class="fc" id="L15">        users.put(email.toLowerCase(), newUser);</span>
+<span class="fc" id="L16">        return &quot;User &quot; + username + &quot; added successfully.&quot;;</span>
+    }
+
+    // Method to update a user's role
+    public String updateUserRole(String email, String newRole) {
+<span class="fc" id="L21">        User user = users.get(email.toLowerCase());</span>
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        if (user == null) {</span>
+<span class="nc" id="L23">            return &quot;User does not exist.&quot;;</span>
+        }
+<span class="fc" id="L25">        user.setRole(newRole);</span>
+<span class="fc" id="L26">        return &quot;User &quot; + user.getUsername() + &quot;'s role updated to &quot; + newRole + &quot;.&quot;;</span>
+    }
+
+    // Method to disable a user's account
+    public String disableUser(String email) {
+<span class="fc" id="L31">        User user = users.get(email.toLowerCase());</span>
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        if (user == null) {</span>
+<span class="nc" id="L33">            return &quot;User does not exist.&quot;;</span>
+        }
+<span class="fc" id="L35">        user.setActive(false);</span>
+<span class="fc" id="L36">        return &quot;User &quot; + user.getUsername() + &quot;'s account has been disabled.&quot;;</span>
+    }
+
+    // Method to approve an instructor's registration
+    public String approveInstructorRegistration(String email) {
+<span class="fc" id="L41">        User user = users.get(email.toLowerCase());</span>
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">        if (user == null) {</span>
+<span class="nc" id="L43">            return &quot;User does not exist.&quot;;</span>
+        }
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if (!&quot;Instructor&quot;.equalsIgnoreCase(user.getRole())) {</span>
+<span class="nc" id="L46">            return &quot;User is not an Instructor.&quot;;</span>
+        }
+<span class="fc" id="L48">        user.setActive(true);</span>
+<span class="fc" id="L49">        return &quot;Instructor &quot; + user.getUsername() + &quot; has been approved.&quot;;</span>
+    }
+
+    // Method to check if a user exists
+    public boolean doesUserExist(String email) {
+<span class="nc" id="L54">        return users.containsKey(email.toLowerCase());</span>
+    }
+
+    // Debugging method to print all users
+    public void printAllUsers() {
+<span class="nc" id="L59">        users.values().forEach(System.out::println);</span>
+<span class="nc" id="L60">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

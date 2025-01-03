@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fit</a> &gt; <a href="index.source.html" class="el_package">fit</a> &gt; <span class="el_source">main.java</span></div><h1>main.java</h1><pre class="source lang-java linenums">package fit;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+<span class="nc" id="L10">public class main {</span>
+    public static void main(String[] args) {
+<span class="nc" id="L12">        Scanner scanner = new Scanner(System.in);</span>
+<span class="nc" id="L13">        boolean running = true;</span>
+
+<span class="nc" id="L15">        System.out.println(&quot;Welcome to Fitness Management System&quot;);</span>
+
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        while (running) {</span>
+<span class="nc" id="L18">            System.out.println(&quot;\nMain Menu:&quot;);</span>
+<span class="nc" id="L19">            System.out.println(&quot;1. Sign Up&quot;);</span>
+<span class="nc" id="L20">            System.out.println(&quot;2. Login&quot;);</span>
+<span class="nc" id="L21">            System.out.println(&quot;3. Exit&quot;);</span>
+<span class="nc" id="L22">            System.out.print(&quot;Enter your choice: &quot;);</span>
+
+<span class="nc" id="L24">            int choice = scanner.nextInt();</span>
+<span class="nc" id="L25">            scanner.nextLine(); // Consume newline</span>
+
+<span class="nc bnc" id="L27" title="All 4 branches missed.">            switch (choice) {</span>
+                case 1:
+<span class="nc" id="L29">                    handleSignUp(scanner);</span>
+<span class="nc" id="L30">                    break;</span>
+                case 2:
+<span class="nc" id="L32">                    handleLogin(scanner);</span>
+<span class="nc" id="L33">                    break;</span>
+                case 3:
+<span class="nc" id="L35">                    System.out.println(&quot;Exiting... Goodbye!&quot;);</span>
+<span class="nc" id="L36">                    running = false;</span>
+<span class="nc" id="L37">                    break;</span>
+                default:
+<span class="nc" id="L39">                    System.out.println(&quot;Invalid choice. Please try again.&quot;);</span>
+            }
+<span class="nc" id="L41">        }</span>
+
+<span class="nc" id="L43">        scanner.close();</span>
+<span class="nc" id="L44">    }</span>
+
+    private static void handleSignUp(Scanner scanner) {
+<span class="nc" id="L47">        SignupSource signupSource = new SignupSource();</span>
+
+<span class="nc" id="L49">        System.out.println(&quot;\nSign Up:&quot;);</span>
+<span class="nc" id="L50">        System.out.print(&quot;Enter username: &quot;);</span>
+<span class="nc" id="L51">        String username = scanner.nextLine();</span>
+<span class="nc" id="L52">        System.out.print(&quot;Enter city: &quot;);</span>
+<span class="nc" id="L53">        String city = scanner.nextLine();</span>
+<span class="nc" id="L54">        System.out.print(&quot;Enter email: &quot;);</span>
+<span class="nc" id="L55">        String email = scanner.nextLine();</span>
+<span class="nc" id="L56">        System.out.print(&quot;Enter role (Admin, Instructor, Client): &quot;);</span>
+<span class="nc" id="L57">        String role = scanner.nextLine();</span>
+<span class="nc" id="L58">        System.out.print(&quot;Enter password: &quot;);</span>
+<span class="nc" id="L59">        String password = scanner.nextLine();</span>
+<span class="nc" id="L60">        System.out.print(&quot;Confirm password: &quot;);</span>
+<span class="nc" id="L61">        String confirmPassword = scanner.nextLine();</span>
+
+       
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (role.equalsIgnoreCase(&quot;Client&quot;)) {</span>
+<span class="nc" id="L65">            System.out.print(&quot;Enter your age: &quot;);</span>
+<span class="nc" id="L66">            String age = scanner.nextLine();</span>
+<span class="nc" id="L67">            System.out.print(&quot;Enter your fitness goals: &quot;);</span>
+<span class="nc" id="L68">            String fitnessGoals = scanner.nextLine();</span>
+<span class="nc" id="L69">            System.out.print(&quot;Enter your dietary preference: &quot;);</span>
+<span class="nc" id="L70">            String dietaryPreference = scanner.nextLine();</span>
+
+            
+<span class="nc" id="L73">            saveClientToFile(username, city, email, password, age, fitnessGoals, dietaryPreference);</span>
+        }
+
+<span class="nc" id="L76">        String result = signupSource.validateSignUp(username, email, role, password, confirmPassword);</span>
+<span class="nc" id="L77">        System.out.println(result);</span>
+<span class="nc" id="L78">    }</span>
+
+    private static void saveClientToFile(String username, String city, String email, String password, String age, String fitnessGoals, String dietaryPreference) {
+<span class="nc" id="L81">        String filePath = &quot;C:\\Users\\HP\\OneDrive\\Desktop\\software\\fit\\src\\main\\resources\\Clientaccounts.txt&quot;;</span>
+
+<span class="nc" id="L83">        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {</span>
+<span class="nc" id="L84">            writer.write(username + &quot;,&quot; + city + &quot;,&quot; + email + &quot;,&quot; + password + &quot;,&quot; + age + &quot;,&quot; + fitnessGoals + &quot;,&quot; + dietaryPreference);</span>
+<span class="nc" id="L85">            writer.newLine();</span>
+         //   System.out.println(&quot;Client details saved successfully.&quot;);
+<span class="nc" id="L87">        } catch (IOException e) {</span>
+<span class="nc" id="L88">            System.out.println(&quot;Error saving client details: &quot; + e.getMessage());</span>
+<span class="nc" id="L89">        }</span>
+<span class="nc" id="L90">    }</span>
+    private static void handleLogin(Scanner scanner) {
+<span class="nc" id="L92">        SiginSource signinSource = new SiginSource();</span>
+
+<span class="nc" id="L94">        System.out.println(&quot;\nLogin:&quot;);</span>
+<span class="nc" id="L95">        System.out.print(&quot;Enter username: &quot;);</span>
+<span class="nc" id="L96">        String username = scanner.nextLine();</span>
+<span class="nc" id="L97">        System.out.print(&quot;Enter password: &quot;);</span>
+<span class="nc" id="L98">        String password = scanner.nextLine();</span>
+
+<span class="nc" id="L100">        signinSource.checkLoginValidInFile(username, password);</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">        if (signinSource.getCheckValid() == 1) {</span>
+<span class="nc" id="L102">            System.out.println(&quot;Login successful. Welcome &quot; + username + &quot;!&quot;);</span>
+<span class="nc" id="L103">            String role = signinSource.getWorkRole();</span>
+<span class="nc" id="L104">            System.out.println(&quot;Your role is: &quot; + role);</span>
+
+<span class="nc bnc" id="L106" title="All 4 branches missed.">            switch (role.toLowerCase()) {</span>
+                case &quot;admin&quot;:
+<span class="nc" id="L108">                    adminMenu(scanner);</span>
+<span class="nc" id="L109">                    break;</span>
+                case &quot;instructor&quot;:
+<span class="nc" id="L111">                    instructorMenu(scanner, username);</span>
+<span class="nc" id="L112">                    break;</span>
+                case &quot;client&quot;:
+<span class="nc" id="L114">                    clientMenu(scanner, username);</span>
+<span class="nc" id="L115">                    break;</span>
+                default:
+<span class="nc" id="L117">                    System.out.println(&quot;No specific actions for this role.&quot;);</span>
+            }
+<span class="nc" id="L119">        } else {</span>
+<span class="nc" id="L120">            System.out.println(&quot;Invalid username or password. Please try again.&quot;);</span>
+        }
+<span class="nc" id="L122">    }</span>
+    private static void adminMenu(Scanner scanner) {
+<span class="nc" id="L124">        boolean adminRunning = true;</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        while (adminRunning) {</span>
+<span class="nc" id="L126">            System.out.println(&quot;\nAdmin Menu:&quot;);</span>
+<span class="nc" id="L127">            System.out.println(&quot;1. Manage Users&quot;);</span>
+<span class="nc" id="L128">            System.out.println(&quot;2. Manage Subscription Plans&quot;);</span>
+<span class="nc" id="L129">            System.out.println(&quot;3. Monitor Programs&quot;);</span>
+<span class="nc" id="L130">            System.out.println(&quot;4. Manage Accounts&quot;);</span>
+<span class="nc" id="L131">            System.out.println(&quot;5. Manage Subscriptions&quot;);</span>
+<span class="nc" id="L132">            System.out.println(&quot;6. Logout&quot;);</span>
+<span class="nc" id="L133">            System.out.print(&quot;Enter your choice: &quot;);</span>
+
+<span class="nc" id="L135">            int choice = scanner.nextInt();</span>
+<span class="nc" id="L136">            scanner.nextLine(); // Consume newline</span>
+
+<span class="nc bnc" id="L138" title="All 7 branches missed.">            switch (choice) {</span>
+                case 1:
+<span class="nc" id="L140">                    handleUserManagement(scanner);</span>
+<span class="nc" id="L141">                    break;</span>
+                case 2:
+<span class="nc" id="L143">                    handleSubscriptionManagement(scanner);</span>
+<span class="nc" id="L144">                    break;</span>
+                case 3:
+<span class="nc" id="L146">                    handleProgramMonitoring(scanner);</span>
+<span class="nc" id="L147">                    break;</span>
+                case 4:
+<span class="nc" id="L149">                    handleAccountManagement(scanner);</span>
+<span class="nc" id="L150">                    break;</span>
+                case 5:
+<span class="nc" id="L152">                    handleSubscriptions(scanner);</span>
+<span class="nc" id="L153">                    break;</span>
+                case 6:
+<span class="nc" id="L155">                    System.out.println(&quot;Logging out...&quot;);</span>
+<span class="nc" id="L156">                    adminRunning = false;</span>
+<span class="nc" id="L157">                    break;</span>
+                default:
+<span class="nc" id="L159">                    System.out.println(&quot;Invalid choice. Please try again.&quot;);</span>
+            }
+<span class="nc" id="L161">        }</span>
+<span class="nc" id="L162">    }</span>
+
+    private static void handleSubscriptions(Scanner scanner) {
+<span class="nc" id="L165">        SubscriptionManagementSource subscriptionManager = new SubscriptionManagementSource();</span>
+<span class="nc" id="L166">        System.out.println(&quot;\nSubscription Management:&quot;);</span>
+<span class="nc" id="L167">        System.out.println(&quot;1. Add Subscription&quot;);</span>
+<span class="nc" id="L168">        System.out.println(&quot;2. Modify Subscription&quot;);</span>
+<span class="nc" id="L169">        System.out.println(&quot;3. Delete Subscription&quot;);</span>
+<span class="nc" id="L170">        System.out.print(&quot;Enter your choice: &quot;);</span>
+
+<span class="nc" id="L172">        int subChoice = scanner.nextInt();</span>
+<span class="nc" id="L173">        scanner.nextLine(); // Consume newline</span>
+
+<span class="nc bnc" id="L175" title="All 4 branches missed.">        switch (subChoice) {</span>
+            case 1:
+<span class="nc" id="L177">                System.out.print(&quot;Enter client email: &quot;);</span>
+<span class="nc" id="L178">                String email = scanner.nextLine();</span>
+<span class="nc" id="L179">                System.out.print(&quot;Enter subscription plan name: &quot;);</span>
+<span class="nc" id="L180">                String planName = scanner.nextLine();</span>
+<span class="nc bnc" id="L181" title="All 2 branches missed.">                if (subscriptionManager.addSubscription(email, planName)) {</span>
+<span class="nc" id="L182">                    System.out.println(&quot;Subscription added successfully.&quot;);</span>
+                }
+                break;
+            case 2:
+<span class="nc" id="L186">                System.out.print(&quot;Enter client email: &quot;);</span>
+<span class="nc" id="L187">                email = scanner.nextLine();</span>
+<span class="nc" id="L188">                System.out.print(&quot;Enter new subscription plan name: &quot;);</span>
+<span class="nc" id="L189">                planName = scanner.nextLine();</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">                if (subscriptionManager.modifySubscriptionPlan(email, planName, 0)) { // Assumes method supports changing plan by email</span>
+<span class="nc" id="L191">                    System.out.println(&quot;Subscription modified successfully.&quot;);</span>
+                }
+                break;
+            case 3:
+<span class="nc" id="L195">                System.out.print(&quot;Enter client email to delete subscription: &quot;);</span>
+<span class="nc" id="L196">                email = scanner.nextLine();</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">                if (subscriptionManager.deleteSubscriptionPlan(email)) {</span>
+<span class="nc" id="L198">                    System.out.println(&quot;Subscription deleted successfully.&quot;);</span>
+                }
+                break;
+        }
+<span class="nc" id="L202">    }</span>
+
+    private static void handleProgramMonitoring(Scanner scanner) {
+<span class="nc" id="L205">        ProgramMonitoring programMonitoring = new ProgramMonitoring();</span>
+
+<span class="nc" id="L207">        System.out.println(&quot;\nProgram Monitoring:&quot;);</span>
+<span class="nc" id="L208">        System.out.println(&quot;1. View Popular Programs&quot;);</span>
+<span class="nc" id="L209">        System.out.println(&quot;2. Generate Revenue Report&quot;);</span>
+<span class="nc" id="L210">        System.out.println(&quot;3. Monitor Attendance&quot;);</span>
+<span class="nc" id="L211">        System.out.println(&quot;4. Generate Client Progress Report&quot;);</span>
+<span class="nc" id="L212">        System.out.println(&quot;5. Track Active and Completed Programs&quot;);</span>
+<span class="nc" id="L213">        System.out.println(&quot;6. Back to Admin Menu&quot;);</span>
+<span class="nc" id="L214">        System.out.print(&quot;Enter your choice: &quot;);</span>
+
+<span class="nc" id="L216">        int choice = scanner.nextInt();</span>
+<span class="nc" id="L217">        scanner.nextLine(); // Consume newline</span>
+
+<span class="nc bnc" id="L219" title="All 7 branches missed.">        switch (choice) {</span>
+            case 1:
+<span class="nc" id="L221">                System.out.println(&quot;Popular Programs:&quot;);</span>
+<span class="nc" id="L222">                List&lt;ProgramMonitoring.FitnessProgram&gt; programs = programMonitoring.getPopularPrograms();</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">                for (ProgramMonitoring.FitnessProgram program : programs) {</span>
+<span class="nc" id="L224">                    System.out.println(&quot;Program: &quot; + program.getName() + &quot;, Enrollment: &quot; + program.getEnrollment());</span>
+<span class="nc" id="L225">                }</span>
+                // No file update needed for viewing
+<span class="nc" id="L227">                break;</span>
+            case 2:
+<span class="nc" id="L229">                System.out.println(&quot;Revenue Report:&quot;);</span>
+<span class="nc" id="L230">                programMonitoring.generateRevenueReport().forEach((name, revenue) -&gt; {</span>
+<span class="nc" id="L231">                    System.out.println(&quot;Program: &quot; + name + &quot;, Revenue: $&quot; + revenue);</span>
+<span class="nc" id="L232">                });</span>
+                // No file update needed for viewing
+<span class="nc" id="L234">                break;</span>
+            case 3:
+<span class="nc" id="L236">                System.out.println(&quot;Attendance Statistics:&quot;);</span>
+<span class="nc" id="L237">                programMonitoring.getAttendanceStatistics().forEach((name, attendance) -&gt; {</span>
+<span class="nc" id="L238">                    System.out.println(&quot;Program: &quot; + name + &quot;, Attendance: &quot; + attendance);</span>
+<span class="nc" id="L239">                });</span>
+                // No file update needed for viewing
+<span class="nc" id="L241">                break;</span>
+            case 4:
+<span class="nc" id="L243">                System.out.println(&quot;Client Progress Report:&quot;);</span>
+<span class="nc" id="L244">                programMonitoring.generateClientProgressReport().forEach((client, progress) -&gt; {</span>
+<span class="nc" id="L245">                    System.out.println(&quot;Client: &quot; + client + &quot;, Progress: &quot; + progress);</span>
+<span class="nc" id="L246">                });</span>
+                // No file update needed for viewing
+<span class="nc" id="L248">                break;</span>
+            case 5:
+<span class="nc" id="L250">                System.out.println(&quot;Active and Completed Programs:&quot;);</span>
+<span class="nc" id="L251">                Map&lt;String, List&lt;ProgramMonitoring.FitnessProgram&gt;&gt; statusMap = programMonitoring.getActiveAndCompletedPrograms();</span>
+<span class="nc" id="L252">                statusMap.forEach((status, programList) -&gt; {</span>
+<span class="nc" id="L253">                    System.out.println(status + &quot; Programs:&quot;);</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">                    for (ProgramMonitoring.FitnessProgram program : programList) {</span>
+<span class="nc" id="L255">                        System.out.println(&quot;- &quot; + program.getName());</span>
+<span class="nc" id="L256">                    }</span>
+<span class="nc" id="L257">                });</span>
+<span class="nc" id="L258">                break;</span>
+            case 6:
+<span class="nc" id="L260">                System.out.println(&quot;Returning to Admin Menu...&quot;);</span>
+<span class="nc" id="L261">                break;</span>
+            default:
+<span class="nc" id="L263">                System.out.println(&quot;Invalid choice. Please try again.&quot;);</span>
+        }
+<span class="nc" id="L265">    }</span>
+
+    private static void handleAccountManagement(Scanner scanner) {
+<span class="nc" id="L268">        boolean accountRunning = true;</span>
+<span class="nc bnc" id="L269" title="All 2 branches missed.">        while (accountRunning) {</span>
+<span class="nc" id="L270">            System.out.println(&quot;\nAccount Management:&quot;);</span>
+<span class="nc" id="L271">            System.out.println(&quot;1. Update User Email&quot;);</span>
+<span class="nc" id="L272">            System.out.println(&quot;2. Delete User Account&quot;);</span>
+<span class="nc" id="L273">            System.out.println(&quot;3. Back to Admin Menu&quot;);</span>
+<span class="nc" id="L274">            System.out.print(&quot;Enter your choice: &quot;);</span>
+
+<span class="nc" id="L276">            int choice = scanner.nextInt();</span>
+<span class="nc" id="L277">            scanner.nextLine(); // Consume newline</span>
+
+<span class="nc bnc" id="L279" title="All 4 branches missed.">            switch (choice) {</span>
+                case 1:
+<span class="nc" id="L281">                    System.out.print(&quot;Enter username to update email: &quot;);</span>
+<span class="nc" id="L282">                    String username = scanner.nextLine();</span>
+<span class="nc" id="L283">                    System.out.print(&quot;Enter new email: &quot;);</span>
+<span class="nc" id="L284">                    String newEmail = scanner.nextLine();</span>
+<span class="nc" id="L285">                    String emailUpdateResult = AccountManagement.updateUserEmail(username, newEmail);</span>
+<span class="nc" id="L286">                    System.out.println(emailUpdateResult);</span>
+<span class="nc" id="L287">                    updateAccountFile(username, newEmail, &quot;C:\\Users\\HP\\OneDrive\\Desktop\\software\\fit\\src\\main\\resources\\Accounts.txt&quot;);</span>
+<span class="nc" id="L288">                    break;</span>
+                case 2:
+<span class="nc" id="L290">                    System.out.print(&quot;Enter username to delete account: &quot;);</span>
+<span class="nc" id="L291">                    username = scanner.nextLine();</span>
+<span class="nc" id="L292">                    String deleteResult = AccountManagement.deleteUser(username);</span>
+<span class="nc" id="L293">                    System.out.println(deleteResult);</span>
+<span class="nc" id="L294">                    deleteAccountFromFile(username, &quot;C:\\Users\\HP\\OneDrive\\Desktop\\software\\fit\\src\\main\\resources\\Accounts.txt&quot;);</span>
+<span class="nc" id="L295">                    break;</span>
+                case 3:
+<span class="nc" id="L297">                    accountRunning = false;</span>
+<span class="nc" id="L298">                    break;</span>
+                default:
+<span class="nc" id="L300">                    System.out.println(&quot;Invalid choice. Please try again.&quot;);</span>
+            }
+<span class="nc" id="L302">        }</span>
+<span class="nc" id="L303">    }</span>
+
+        
+    private static void instructorMenu(Scanner scanner, String username) {
+<span class="nc" id="L307">        boolean instructorRunning = true;</span>
+<span class="nc bnc" id="L308" title="All 2 branches missed.">        while (instructorRunning) {</span>
+<span class="nc" id="L309">            System.out.println(&quot;\nInstructor Menu:&quot;);</span>
+<span class="nc" id="L310">            System.out.println(&quot;1. Manage Programs&quot;);</span>
+<span class="nc" id="L311">            System.out.println(&quot;2. Interact with Clients&quot;);</span>
+<span class="nc" id="L312">            System.out.println(&quot;3. View Notifications&quot;);</span>
+<span class="nc" id="L313">            System.out.println(&quot;4. Logout&quot;);</span>
+<span class="nc" id="L314">            System.out.print(&quot;Enter your choice: &quot;);</span>
+
+<span class="nc" id="L316">            int choice = scanner.nextInt();</span>
+<span class="nc" id="L317">            scanner.nextLine(); // Consume newline</span>
+
+<span class="nc bnc" id="L319" title="All 5 branches missed.">            switch (choice) {</span>
+                case 1:
+<span class="nc" id="L321">                    handleProgramManagement(scanner);</span>
+<span class="nc" id="L322">                    break;</span>
+                case 2:
+<span class="nc" id="L324">                    handleClientInteraction(scanner);</span>
+<span class="nc" id="L325">                    break;</span>
+                case 3:
+<span class="nc" id="L327">                    viewNotifications(scanner, username);</span>
+<span class="nc" id="L328">                    break;</span>
+                case 4:
+<span class="nc" id="L330">                    System.out.println(&quot;Logging out...&quot;);</span>
+<span class="nc" id="L331">                    instructorRunning = false;</span>
+<span class="nc" id="L332">                    break;</span>
+                default:
+<span class="nc" id="L334">                    System.out.println(&quot;Invalid choice. Please try again.&quot;);</span>
+            }
+<span class="nc" id="L336">        }</span>
+<span class="nc" id="L337">    }</span>
+
+    private static void clientMenu(Scanner scanner, String username) {
+<span class="nc" id="L340">        boolean clientRunning = true;</span>
+<span class="nc bnc" id="L341" title="All 2 branches missed.">        while (clientRunning) {</span>
+<span class="nc" id="L342">            System.out.println(&quot;\nClient Menu:&quot;);</span>
+<span class="nc" id="L343">            System.out.println(&quot;1. Manage Account&quot;);</span>
+<span class="nc" id="L344">            System.out.println(&quot;2. View Notifications&quot;);</span>
+<span class="nc" id="L345">            System.out.println(&quot;3. Logout&quot;);</span>
+<span class="nc" id="L346">            System.out.print(&quot;Enter your choice: &quot;);</span>
+
+<span class="nc" id="L348">            int choice = scanner.nextInt();</span>
+<span class="nc" id="L349">            scanner.nextLine(); // Consume newline</span>
+
+<span class="nc bnc" id="L351" title="All 4 branches missed.">            switch (choice) {</span>
+                case 1:
+<span class="nc" id="L353">                    handleClientAccountManagement(scanner, username);</span>
+<span class="nc" id="L354">                    break;</span>
+                case 2:
+<span class="nc" id="L356">                    viewNotifications(scanner, username);</span>
+<span class="nc" id="L357">                    break;</span>
+                case 3:
+<span class="nc" id="L359">                    System.out.println(&quot;Logging out...&quot;);</span>
+<span class="nc" id="L360">                    clientRunning = false;</span>
+<span class="nc" id="L361">                    break;</span>
+                default:
+<span class="nc" id="L363">                    System.out.println(&quot;Invalid choice. Please try again.&quot;);</span>
+            }
+<span class="nc" id="L365">        }</span>
+<span class="nc" id="L366">    }</span>
+
+    private static void handleUserManagement(Scanner scanner) {
+<span class="nc" id="L369">        UserManagementSource userManager = new UserManagementSource();</span>
+
+<span class="nc" id="L371">        System.out.println(&quot;\nUser Management:&quot;);</span>
+<span class="nc" id="L372">        System.out.println(&quot;1. Add User&quot;);</span>
+<span class="nc" id="L373">        System.out.println(&quot;2. Update User Role&quot;);</span>
+<span class="nc" id="L374">        System.out.println(&quot;3. Disable User&quot;);</span>
+<span class="nc" id="L375">        System.out.println(&quot;4. Approve Instructor&quot;);</span>
+<span class="nc" id="L376">        System.out.println(&quot;5. Update User Email&quot;);</span>
+<span class="nc" id="L377">        System.out.println(&quot;6. Delete User&quot;);</span>
+<span class="nc" id="L378">        System.out.print(&quot;Enter your choice: &quot;);</span>
+
+<span class="nc" id="L380">        int choice = scanner.nextInt();</span>
+<span class="nc" id="L381">        scanner.nextLine(); // Consume newline</span>
+
+<span class="nc bnc" id="L383" title="All 7 branches missed.">        switch (choice) {</span>
+            case 1:
+<span class="nc" id="L385">                System.out.print(&quot;Enter username: &quot;);</span>
+<span class="nc" id="L386">                String username = scanner.nextLine();</span>
+<span class="nc" id="L387">                System.out.print(&quot;Enter city: &quot;);</span>
+<span class="nc" id="L388">                String city = scanner.nextLine();</span>
+<span class="nc" id="L389">                System.out.print(&quot;Enter email: &quot;);</span>
+<span class="nc" id="L390">                String email = scanner.nextLine();</span>
+<span class="nc" id="L391">                System.out.print(&quot;Enter password: &quot;);</span>
+<span class="nc" id="L392">                String password = scanner.nextLine();</span>
+<span class="nc" id="L393">                System.out.print(&quot;Enter role: &quot;);</span>
+<span class="nc" id="L394">                String role = scanner.nextLine();</span>
+<span class="nc" id="L395">                System.out.println(userManager.addUser(username, city, email, password, role));</span>
+<span class="nc" id="L396">                break;</span>
+            case 2:
+<span class="nc" id="L398">                System.out.print(&quot;Enter email: &quot;);</span>
+<span class="nc" id="L399">                email = scanner.nextLine();</span>
+<span class="nc" id="L400">                System.out.print(&quot;Enter new role: &quot;);</span>
+<span class="nc" id="L401">                String newRole = scanner.nextLine();</span>
+<span class="nc" id="L402">                System.out.println(userManager.updateUserRole(email, newRole));</span>
+<span class="nc" id="L403">                break;</span>
+            case 3:
+<span class="nc" id="L405">                System.out.print(&quot;Enter email: &quot;);</span>
+<span class="nc" id="L406">                email = scanner.nextLine();</span>
+<span class="nc" id="L407">                System.out.println(userManager.disableUser(email));</span>
+<span class="nc" id="L408">                break;</span>
+            case 4:
+<span class="nc" id="L410">                System.out.print(&quot;Enter email: &quot;);</span>
+<span class="nc" id="L411">                email = scanner.nextLine();</span>
+<span class="nc" id="L412">                System.out.println(userManager.approveInstructorRegistration(email));</span>
+<span class="nc" id="L413">                break;</span>
+            case 5:
+<span class="nc" id="L415">                System.out.print(&quot;Enter username to update email: &quot;);</span>
+<span class="nc" id="L416">                username = scanner.nextLine();</span>
+<span class="nc" id="L417">                System.out.print(&quot;Enter new email: &quot;);</span>
+<span class="nc" id="L418">                String newEmail = scanner.nextLine();</span>
+<span class="nc" id="L419">                System.out.println(AccountManagement.updateUserEmail(username, newEmail));</span>
+<span class="nc" id="L420">                break;</span>
+            case 6:
+<span class="nc" id="L422">                System.out.print(&quot;Enter username to delete: &quot;);</span>
+<span class="nc" id="L423">                username = scanner.nextLine();</span>
+<span class="nc" id="L424">                System.out.println(AccountManagement.deleteUser(username));</span>
+<span class="nc" id="L425">                break;</span>
+            default:
+<span class="nc" id="L427">                System.out.println(&quot;Invalid choice.&quot;);</span>
+        }
+<span class="nc" id="L429">    }</span>
+    private static void updateAccountFile(String username, String newEmail, String filePath) {
+        try {
+<span class="nc" id="L432">            List&lt;String&gt; fileContent = java.nio.file.Files.readAllLines(java.nio.file.Paths.get(filePath));</span>
+<span class="nc bnc" id="L433" title="All 2 branches missed.">            for (int i = 0; i &lt; fileContent.size(); i++) {</span>
+<span class="nc" id="L434">                String[] parts = fileContent.get(i).split(&quot;,&quot;);</span>
+<span class="nc bnc" id="L435" title="All 2 branches missed.">                if (parts[0].equals(username)) { // Assuming username is the first field</span>
+<span class="nc" id="L436">                    parts[2] = newEmail; // Update email (assuming email is the third field)</span>
+<span class="nc" id="L437">                    fileContent.set(i, String.join(&quot;,&quot;, parts));</span>
+<span class="nc" id="L438">                    break;</span>
+                }
+            }
+<span class="nc" id="L441">            java.nio.file.Files.write(java.nio.file.Paths.get(filePath), fileContent);</span>
+         //   System.out.println(&quot;Account file updated successfully.&quot;);
+<span class="nc" id="L443">        } catch (IOException e) {</span>
+<span class="nc" id="L444">            System.out.println(&quot;Error updating account file: &quot; + e.getMessage());</span>
+<span class="nc" id="L445">        }</span>
+<span class="nc" id="L446">    }</span>
+    private static void deleteAccountFromFile(String username, String filePath) {
+        try {
+<span class="nc" id="L449">            List&lt;String&gt; fileContent = java.nio.file.Files.readAllLines(java.nio.file.Paths.get(filePath));</span>
+<span class="nc" id="L450">            fileContent.removeIf(line -&gt; line.split(&quot;,&quot;)[0].equals(username)); // Assuming username is the first field</span>
+<span class="nc" id="L451">            java.nio.file.Files.write(java.nio.file.Paths.get(filePath), fileContent);</span>
+<span class="nc" id="L452">            System.out.println(&quot;Account deleted successfully from file.&quot;);</span>
+<span class="nc" id="L453">        } catch (IOException e) {</span>
+<span class="nc" id="L454">            System.out.println(&quot;Error deleting account from file: &quot; + e.getMessage());</span>
+<span class="nc" id="L455">        }</span>
+<span class="nc" id="L456">    }</span>
+    private static void updateSubscriptionPlanFile(String planName, int price, String action, String filePath) {
+        try {
+<span class="nc" id="L459">            List&lt;String&gt; fileContent = java.nio.file.Files.readAllLines(java.nio.file.Paths.get(filePath));</span>
+<span class="nc bnc" id="L460" title="All 4 branches missed.">            switch (action.toLowerCase()) {</span>
+                case &quot;add&quot;:
+<span class="nc" id="L462">                    fileContent.add(planName + &quot;,&quot; + price);</span>
+<span class="nc" id="L463">                    break;</span>
+                case &quot;modify&quot;:
+<span class="nc bnc" id="L465" title="All 2 branches missed.">                    for (int i = 0; i &lt; fileContent.size(); i++) {</span>
+<span class="nc" id="L466">                        String[] parts = fileContent.get(i).split(&quot;,&quot;);</span>
+<span class="nc bnc" id="L467" title="All 2 branches missed.">                        if (parts[0].equals(planName)) { // Assuming plan name is the first field</span>
+<span class="nc" id="L468">                            parts[1] = String.valueOf(price); // Update price</span>
+<span class="nc" id="L469">                            fileContent.set(i, String.join(&quot;,&quot;, parts));</span>
+<span class="nc" id="L470">                            break;</span>
+                        }
+                    }
+<span class="nc" id="L473">                    break;</span>
+                case &quot;delete&quot;:
+<span class="nc" id="L475">                    fileContent.removeIf(line -&gt; line.split(&quot;,&quot;)[0].equals(planName));</span>
+<span class="nc" id="L476">                    break;</span>
+                default:
+<span class="nc" id="L478">                    System.out.println(&quot;Invalid action for subscription plan update.&quot;);</span>
+<span class="nc" id="L479">                    return;</span>
+            }
+<span class="nc" id="L481">            java.nio.file.Files.write(java.nio.file.Paths.get(filePath), fileContent);</span>
+<span class="nc" id="L482">            System.out.println(&quot;Subscription plan file updated successfully.&quot;);</span>
+<span class="nc" id="L483">        } catch (IOException e) {</span>
+<span class="nc" id="L484">            System.out.println(&quot;Error updating subscription plan file: &quot; + e.getMessage());</span>
+<span class="nc" id="L485">        }</span>
+<span class="nc" id="L486">    }</span>
+
+
+    private static void handleSubscriptionManagement(Scanner scanner) {
+<span class="nc" id="L490">        SubscriptionManagementSource subscriptionManager = new SubscriptionManagementSource();</span>
+
+<span class="nc" id="L492">        System.out.println(&quot;\nSubscription Management:&quot;);</span>
+<span class="nc" id="L493">        System.out.println(&quot;1. Add Subscription Plan&quot;);</span>
+<span class="nc" id="L494">        System.out.println(&quot;2. Modify Subscription Plan&quot;);</span>
+<span class="nc" id="L495">        System.out.println(&quot;3. Delete Subscription Plan&quot;);</span>
+<span class="nc" id="L496">        System.out.println(&quot;4. Reject Subscription Upgrade Request&quot;);</span>
+<span class="nc" id="L497">        System.out.print(&quot;Enter your choice: &quot;);</span>
+
+<span class="nc" id="L499">        int choice = scanner.nextInt();</span>
+<span class="nc" id="L500">        scanner.nextLine(); // Consume newline</span>
+
+<span class="nc bnc" id="L502" title="All 3 branches missed.">        switch (choice) {</span>
+            case 1:
+<span class="nc" id="L504">                System.out.print(&quot;Enter plan name: &quot;);</span>
+<span class="nc" id="L505">                String planName = scanner.nextLine();</span>
+<span class="nc" id="L506">                System.out.print(&quot;Enter price: &quot;);</span>
+<span class="nc" id="L507">                int price = scanner.nextInt();</span>
+<span class="nc" id="L508">                scanner.nextLine(); // Consume newline</span>
+<span class="nc" id="L509">                boolean addResult = subscriptionManager.addSubscriptionPlan(planName, price);</span>
+<span class="nc bnc" id="L510" title="All 2 branches missed.">                if (addResult) {</span>
+<span class="nc" id="L511">                    System.out.println(&quot;Subscription plan added successfully.&quot;);</span>
+<span class="nc" id="L512">                    updateSubscriptionPlanFile(planName, price, &quot;Add&quot;, &quot;C:\\Users\\HP\\OneDrive\\Desktop\\software\\fit\\src\\main\\resources\\SubscriptionPlans.txt&quot;);</span>
+                } else {
+<span class="nc" id="L514">                    System.out.println(&quot;Plan already exists.&quot;);</span>
+                }
+<span class="nc" id="L516">                break;</span>
+            case 2:
+                // Similar implementation for modifying and deleting subscription plans
+<span class="nc" id="L519">                break;</span>
+            default:
+<span class="nc" id="L521">                System.out.println(&quot;Invalid choice. Please try again.&quot;);</span>
+        }
+<span class="nc" id="L523">    }</span>
+  
+
+
+    private static void handleProgramManagement(Scanner scanner) {
+<span class="nc" id="L528">        ProgramManagement programManager = new ProgramManagement();</span>
+
+<span class="nc" id="L530">        System.out.println(&quot;\nProgram Management:&quot;);</span>
+<span class="nc" id="L531">        System.out.println(&quot;1. Create Program&quot;);</span>
+<span class="nc" id="L532">        System.out.println(&quot;2. Edit Program&quot;);</span>
+<span class="nc" id="L533">        System.out.println(&quot;3. Delete Program&quot;);</span>
+<span class="nc" id="L534">        System.out.print(&quot;Enter your choice: &quot;);</span>
+
+<span class="nc" id="L536">        int choice = scanner.nextInt();</span>
+<span class="nc" id="L537">        scanner.nextLine(); // Consume newline</span>
+
+<span class="nc bnc" id="L539" title="All 4 branches missed.">        switch (choice) {</span>
+            case 1:
+<span class="nc" id="L541">                System.out.print(&quot;Enter program title: &quot;);</span>
+<span class="nc" id="L542">                String title = scanner.nextLine();</span>
+<span class="nc" id="L543">                System.out.print(&quot;Enter duration: &quot;);</span>
+<span class="nc" id="L544">                String duration = scanner.nextLine();</span>
+<span class="nc" id="L545">                System.out.print(&quot;Enter goals: &quot;);</span>
+<span class="nc" id="L546">                String goals = scanner.nextLine();</span>
+<span class="nc" id="L547">                System.out.print(&quot;Enter price: &quot;);</span>
+<span class="nc" id="L548">                String price = scanner.nextLine();</span>
+<span class="nc" id="L549">                System.out.println(programManager.createProgram(title, duration, goals, price));</span>
+<span class="nc" id="L550">                break;</span>
+            case 2:
+<span class="nc" id="L552">                System.out.print(&quot;Enter program title to edit: &quot;);</span>
+<span class="nc" id="L553">                String oldTitle = scanner.nextLine();</span>
+<span class="nc" id="L554">                System.out.print(&quot;Enter new duration: &quot;);</span>
+<span class="nc" id="L555">                duration = scanner.nextLine();</span>
+<span class="nc" id="L556">                System.out.print(&quot;Enter new price: &quot;);</span>
+<span class="nc" id="L557">                price = scanner.nextLine();</span>
+<span class="nc" id="L558">                System.out.println(programManager.editProgram(oldTitle, duration, price));</span>
+<span class="nc" id="L559">                break;</span>
+            case 3:
+<span class="nc" id="L561">                System.out.print(&quot;Enter program title to delete: &quot;);</span>
+<span class="nc" id="L562">                title = scanner.nextLine();</span>
+<span class="nc" id="L563">                System.out.println(programManager.deleteProgram(title));</span>
+<span class="nc" id="L564">                break;</span>
+            default:
+<span class="nc" id="L566">                System.out.println(&quot;Invalid choice.&quot;);</span>
+        }
+<span class="nc" id="L568">    }</span>
+
+    
+    private static void handleClientAccountManagement(Scanner scanner, String username) {
+<span class="nc" id="L572">        System.out.println(&quot;\nClient Account Management:&quot;);</span>
+<span class="nc" id="L573">        System.out.println(&quot;1. Update Personal Details&quot;);</span>
+<span class="nc" id="L574">        System.out.println(&quot;2. Update Dietary Preferences&quot;);</span>
+<span class="nc" id="L575">        System.out.println(&quot;3. Update Password&quot;);</span>
+<span class="nc" id="L576">        System.out.print(&quot;Enter your choice: &quot;);</span>
+
+<span class="nc" id="L578">        int choice = scanner.nextInt();</span>
+<span class="nc" id="L579">        scanner.nextLine(); // Consume newline</span>
+
+<span class="nc bnc" id="L581" title="All 4 branches missed.">        switch (choice) {</span>
+            case 1:
+<span class="nc" id="L583">                System.out.print(&quot;Enter your age: &quot;);</span>
+<span class="nc" id="L584">                String age = scanner.nextLine();</span>
+<span class="nc" id="L585">                System.out.print(&quot;Enter your fitness goals: &quot;);</span>
+<span class="nc" id="L586">                String fitnessGoals = scanner.nextLine();</span>
+<span class="nc" id="L587">                System.out.println(AccountManagement.updatePersonalDetails(username, age, fitnessGoals));</span>
+<span class="nc" id="L588">                break;</span>
+            case 2:
+<span class="nc" id="L590">                System.out.print(&quot;Enter your dietary preferences: &quot;);</span>
+<span class="nc" id="L591">                String dietaryPreferences = scanner.nextLine();</span>
+<span class="nc" id="L592">                System.out.println(AccountManagement.updateDietaryPreferences(username, dietaryPreferences));</span>
+<span class="nc" id="L593">                break;</span>
+            case 3:
+<span class="nc" id="L595">                System.out.print(&quot;Enter your current password: &quot;);</span>
+<span class="nc" id="L596">                String currentPassword = scanner.nextLine();</span>
+<span class="nc" id="L597">                System.out.print(&quot;Enter your new password: &quot;);</span>
+<span class="nc" id="L598">                String newPassword = scanner.nextLine();</span>
+<span class="nc" id="L599">                System.out.println(AccountManagement.updatePassword(username, currentPassword, newPassword));</span>
+<span class="nc" id="L600">                break;</span>
+            default:
+<span class="nc" id="L602">                System.out.println(&quot;Invalid choice.&quot;);</span>
+        }
+<span class="nc" id="L604">    }</span>
+
+
+    private static void handleClientInteraction(Scanner scanner) {
+<span class="nc" id="L608">        boolean interactionRunning = true;</span>
+<span class="nc bnc" id="L609" title="All 2 branches missed.">        while (interactionRunning) {</span>
+<span class="nc" id="L610">            System.out.println(&quot;\nClient Interaction:&quot;);</span>
+<span class="nc" id="L611">            System.out.println(&quot;1. Send Message to Client&quot;);</span>
+           // System.out.println(&quot;2. View Messages from Client&quot;);
+<span class="nc" id="L613">            System.out.println(&quot;2. Provide Feedback to Client&quot;);</span>
+<span class="nc" id="L614">            System.out.println(&quot;3. View Client Progress&quot;);</span>
+           // System.out.println(&quot;4. Respond to Discussion&quot;);
+<span class="nc" id="L616">            System.out.println(&quot;4. Back to Menu&quot;);</span>
+<span class="nc" id="L617">            System.out.print(&quot;Enter your choice: &quot;);</span>
+
+<span class="nc" id="L619">            int choice = scanner.nextInt();</span>
+<span class="nc" id="L620">            scanner.nextLine(); // Consume newline</span>
+
+<span class="nc bnc" id="L622" title="All 5 branches missed.">            switch (choice) {</span>
+                case 1:
+<span class="nc" id="L624">                    System.out.print(&quot;Enter client name: &quot;);</span>
+<span class="nc" id="L625">                    String clientName = scanner.nextLine();</span>
+<span class="nc" id="L626">                    System.out.print(&quot;Enter message: &quot;);</span>
+<span class="nc" id="L627">                    String message = scanner.nextLine();</span>
+<span class="nc" id="L628">                    System.out.println(ClientInteraction.sendMessage(&quot;Instructor&quot;, clientName, message));</span>
+<span class="nc" id="L629">                    break;</span>
+                case 2:
+<span class="nc" id="L631">                    System.out.print(&quot;Enter client name: &quot;);</span>
+<span class="nc" id="L632">                    clientName = scanner.nextLine();</span>
+<span class="nc" id="L633">                    System.out.print(&quot;Enter feedback: &quot;);</span>
+<span class="nc" id="L634">                    String feedback = scanner.nextLine();</span>
+<span class="nc" id="L635">                    System.out.println(ClientInteraction.provideFeedback(clientName, feedback));</span>
+<span class="nc" id="L636">                    break;</span>
+                case 3:
+<span class="nc" id="L638">                    System.out.print(&quot;Enter client name: &quot;);</span>
+<span class="nc" id="L639">                    clientName = scanner.nextLine();</span>
+<span class="nc" id="L640">                    System.out.println(&quot;Progress: &quot; + ClientInteraction.viewProgress(clientName));</span>
+<span class="nc" id="L641">                    break;</span>
+                case 4:
+<span class="nc" id="L643">                    interactionRunning = false;</span>
+<span class="nc" id="L644">                    break;</span>
+                default:
+<span class="nc" id="L646">                    System.out.println(&quot;Invalid choice. Please try again.&quot;);</span>
+            }
+<span class="nc" id="L648">        }</span>
+<span class="nc" id="L649">    }</span>
+
+    private static void viewNotifications(Scanner scanner, String username) {
+<span class="nc" id="L652">        System.out.println(&quot;\nNotifications:&quot;);</span>
+<span class="nc" id="L653">        List&lt;String&gt; notifications = NotificationsAndUpdates.viewNotifications(username);</span>
+<span class="nc bnc" id="L654" title="All 2 branches missed.">        if (notifications.isEmpty()) {</span>
+<span class="nc" id="L655">            System.out.println(&quot;No new notifications.&quot;);</span>
+        } else {
+<span class="nc bnc" id="L657" title="All 2 branches missed.">            for (String notification : notifications) {</span>
+<span class="nc" id="L658">                System.out.println(notification);</span>
+<span class="nc" id="L659">            }</span>
+        }
+<span class="nc" id="L661">    }</span>
+
+   
+
+    private static void sendClientNotifications(String username) {
+<span class="nc" id="L666">        System.out.println(&quot;Sending notifications for new program.&quot;);</span>
+<span class="nc" id="L667">        NotificationsAndUpdates.sendNotification(username, &quot;New program available: Yoga for Beginners&quot;);</span>
+<span class="nc" id="L668">        NotificationsAndUpdates.sendNotification(username, &quot;Program updated: Yoga for Beginners&quot;);</span>
+<span class="nc" id="L669">        NotificationsAndUpdates.sendNotification(username, &quot;Program canceled: Yoga for Beginners&quot;);</span>
+<span class="nc" id="L670">    }</span>
+
+    private static void sendInstructorNotifications(String username) {
+<span class="nc" id="L673">        System.out.println(&quot;Sending notifications for instructor.&quot;);</span>
+<span class="nc" id="L674">        NotificationsAndUpdates.sendNotification(username, &quot;Client Hiba enrolled in Yoga for Beginners&quot;);</span>
+<span class="nc" id="L675">        NotificationsAndUpdates.sendNotification(username, &quot;New message from Hiba: I have a question about my schedule.&quot;);</span>
+<span class="nc" id="L676">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,11 @@
+fit\CommonSteps.class
+fit\AccepTest.class
+fit\AccountManagementSteps.class
+fit\ClientInteractionSteps.class
+fit\ProgramMonitoringsteps.class
+fit\UserManagementSteps.class
+fit\SubscriptionManagement.class
+fit\SiginSteps.class
+fit\NotificationsandUpdatesSteps.class
+fit\Signupsteps.class
+fit\ProgramManagementSteps.class
