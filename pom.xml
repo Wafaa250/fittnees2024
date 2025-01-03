@@ -7,11 +7,15 @@
     <artifactId>fit</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    <!-- إضافة إعدادات الـ properties الخاصة بـ SonarQube -->
     <properties>
+        <maven.compiler.source>1.7</maven.compiler.source> <!-- تحديد إصدار Java 7 أو أعلى -->
+        <maven.compiler.target>1.7</maven.compiler.target> <!-- تحديد إصدار Java 7 أو أعلى -->
+        
         <!-- SonarQube configuration -->
         <sonar.organization>wafaafitt</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    </properties>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
 
     <dependencies>
         <!-- Cucumber Java dependency -->
@@ -76,6 +80,14 @@
                 </configuration>
             </plugin>
 
+            <!-- Plugin لتحليل الجودة باستخدام SonarQube -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.0.1100</version> <!-- تأكد من استخدام أحدث نسخة من SonarQube -->
+            </plugin>
+
+            <!-- Plugin لإنتاج تقارير تغطية الكود بواسطة JaCoCo -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
